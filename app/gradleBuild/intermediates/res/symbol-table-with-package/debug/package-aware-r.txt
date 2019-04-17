@@ -888,6 +888,7 @@ id icon
 id icon_group
 id ifRoom
 id image
+id img_local
 id info
 id invisible
 id italic
@@ -914,6 +915,7 @@ id notification_background
 id notification_main_column
 id notification_main_column_container
 id overlay
+id overlay_image
 id packed
 id parent
 id parentPanel
@@ -1031,6 +1033,7 @@ layout adapter_camera
 layout adapter_folder
 layout adapter_images_item
 layout camera_connection_fragment
+layout image_fragment
 layout notification_action
 layout notification_action_tombstone
 layout notification_template_custom_big

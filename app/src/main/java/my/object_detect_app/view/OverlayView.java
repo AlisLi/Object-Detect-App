@@ -36,7 +36,7 @@ public class OverlayView extends View {
         paint.setTextSize(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
                 15, getResources().getDisplayMetrics()));
         resultsViewHeight = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
-                112, getResources().getDisplayMetrics());
+                150, getResources().getDisplayMetrics());
         colors = ClassAttrProvider.newInstance(context.getAssets()).getColors();
     }
 
@@ -97,4 +97,25 @@ public class OverlayView extends View {
 
         return new RectF(left, top, right, bottom);
     }
+
+    /**
+     * 因为预览的长宽和预测图象的长宽不一致，所以要进行相应的微调
+     * @param rect
+     * @return
+     */
+//    private RectF reCalcSize(BoxPosition rect) {
+//        int padding = 5;
+//        float overlayViewHeight = this.getHeight() - resultsViewHeight;
+//        float widthScale = (float) this.getWidth() / (float) Config.INPUT_SIZE;
+//        float heightScale = overlayViewHeight / (float) Config.INPUT_SIZE;
+//
+//        float left = Math.max(padding,widthScale * rect.getLeft());
+//        float top = Math.max(padding, heightScale * rect.getTop() + resultsViewHeight);
+//
+//        float right = Math.min(rect.getRight() * widthScale, this.getWidth() - padding);
+//        float bottom = Math.min(rect.getBottom() * heightScale, this.getHeight() - padding);
+//
+//        return new RectF(left, top, right, bottom);
+//    }
+
 }
