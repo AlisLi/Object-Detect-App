@@ -1,0 +1,7 @@
+#Wed Apr 17 10:10:36 CST 2019
+base.0=E\:\\graduationDesign\\Object-Detect-App\\app\\gradleBuild\\intermediates\\transforms\\dexMerger\\debug\\0
+path.1=classes.dex
+renamed.1=classes2.dex
+path.0=classes.dex
+renamed.0=classes.dex
+base.1=E\:\\graduationDesign\\Object-Detect-App\\app\\gradleBuild\\intermediates\\transforms\\dexMerger\\debug\\1

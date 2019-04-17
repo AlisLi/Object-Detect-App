@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Object-Detect-App</string>
+    <string name="description_info">Info</string>
+    <string name="request_permission">This sample needs camera permission.</string>
+    <string name="camera_error">This device doesn\'t support Camera2 API.</string>
+
+    <!-- button text -->
+    <string name="txt_btn_real_time_video">视频实时检测</string>
+    <string name="txt_btn_local_photo">本地照片检测</string>
+    <string name="txt_btn_local_video">本地视频检测</string>
+    <string name="txt_btn_net_photo">网络照片检测</string>
+    <string name="txt_btn_net_video">网络视频检测</string>
+    <string name="txt_btn_detect_result">历史检测结果</string>
+
+
+    <string name="image">图片</string>
+    <string name="confirm">确定</string>
+    <string name="preview">预览</string>
+</resources>
