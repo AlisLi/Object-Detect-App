@@ -1,29 +1,17 @@
 package my.object_detect_app.activities;
 
 import android.Manifest;
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.ObjectAnimator;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
-import android.graphics.Color;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.Handler;
 import android.provider.MediaStore;
 import android.provider.Settings;
-import android.view.KeyEvent;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.FrameLayout;
-import android.widget.TextView;
 
 import java.io.File;
 import java.io.IOException;
@@ -33,21 +21,20 @@ import java.util.Date;
 import java.util.Locale;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 import androidx.core.os.EnvironmentCompat;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SimpleItemAnimator;
 import my.object_detect_app.R;
-import my.object_detect_app.adapter.FolderAdapter;
 import my.object_detect_app.adapter.ImageAdapter;
-import my.object_detect_app.entity.Folder;
+import my.object_detect_app.adapter.ImageFolderAdapter;
 import my.object_detect_app.entity.Image;
+import my.object_detect_app.entity.ImageFolder;
+import my.object_detect_app.entity.VideoFolder;
 import my.object_detect_app.model.ImageModel;
 import my.object_detect_app.utils.imageSelect.DateUtils;
 import my.object_detect_app.utils.imageSelect.ImageSelector;
@@ -55,126 +42,23 @@ import my.object_detect_app.utils.imageSelect.ImageSelector;
 /**
  * User: Lizhiguo
  */
-public class ImageSelectorActivity extends AppCompatActivity {
-
-    private TextView tvTime;
-    private TextView tvFolderName;
-    private TextView tvConfirm;
-    private TextView tvPreview;
-    private FrameLayout btnConfirm;
-    private FrameLayout btnPreview;
-    private RecyclerView rvImage;
-    private RecyclerView rvFolder;
-    private View masking;
-
+public class ImageSelectorActivity extends SelectorActivity {
     private ImageAdapter mAdapter;
-    private GridLayoutManager mLayoutManager;
 
-    private ArrayList<Folder> mFolders;
-    private Folder mFolder;
-    private boolean applyLoadImage = false;
-    private static final int PERMISSION_WRITE_EXTERNAL_REQUEST_CODE = 0x00000011;
-    private static final int PERMISSION_CAMERA_REQUEST_CODE = 0x00000012;
-
-    private static final int CAMERA_REQUEST_CODE = 0x00000010;
-
-    private boolean isOpenFolder;
-    private boolean isShowTime;
-    private boolean isInitFolder;
-    private boolean isSingle;
-    private boolean isViewImage = true;
-    private int mMaxCount;
-
-    private boolean useCamera = true;
     private String mPhotoPath;
-
-    private Handler mHideHandler = new Handler();
-    private Runnable mHide = new Runnable() {
-        @Override
-        public void run() {
-            hideTime();
-        }
-    };
 
     //用于接收从外面传进来的已选择的图片列表。当用户原来已经有选择过图片，现在重新打开选择器，允许用
     // 户把先前选过的图片传进来，并把这些图片默认为选中状态。
     private ArrayList<String> mSelectedImages;
 
-    /**
-     * 启动图片选择器
-     *
-     * @param activity
-     * @param requestCode
-     * @param isSingle       是否单选
-     * @param isViewImage    是否点击放大图片查看
-     * @param useCamera      是否使用拍照功能
-     * @param maxSelectCount 图片的最大选择数量，小于等于0时，不限数量，isSingle为false时才有用。
-     * @param selected       接收从外面传进来的已选择的图片列表。当用户原来已经有选择过图片，现在重新打开
-     *                       选择器，允许用户把先前选过的图片传进来，并把这些图片默认为选中状态。
-     */
-    public static void openActivity(Activity activity, int requestCode,
-                                    boolean isSingle, boolean isViewImage, boolean useCamera,
-                                    int maxSelectCount, ArrayList<String> selected) {
-        Intent intent = new Intent(activity, ImageSelectorActivity.class);
-        intent.putExtras(dataPackages(isSingle, isViewImage, useCamera, maxSelectCount, selected));
-        activity.startActivityForResult(intent, requestCode);
-    }
+    private ArrayList<ImageFolder> mFolders;
+    private ImageFolder mFolder;
 
-    /**
-     * 启动图片选择器
-     *
-     * @param fragment
-     * @param requestCode
-     * @param isSingle       是否单选
-     * @param isViewImage    是否点击放大图片查看
-     * @param useCamera      是否使用拍照功能
-     * @param maxSelectCount 图片的最大选择数量，小于等于0时，不限数量，isSingle为false时才有用。
-     * @param selected       接收从外面传进来的已选择的图片列表。当用户原来已经有选择过图片，现在重新打开
-     *                       选择器，允许用户把先前选过的图片传进来，并把这些图片默认为选中状态。
-     */
-    public static void openActivity(Fragment fragment, int requestCode,
-                                    boolean isSingle, boolean isViewImage, boolean useCamera,
-                                    int maxSelectCount, ArrayList<String> selected) {
-        Intent intent = new Intent(fragment.getContext(), ImageSelectorActivity.class);
-        intent.putExtras(dataPackages(isSingle, isViewImage, useCamera, maxSelectCount, selected));
-        fragment.startActivityForResult(intent, requestCode);
-    }
 
-    /**
-     * 启动图片选择器
-     *
-     * @param fragment
-     * @param requestCode
-     * @param isSingle       是否单选
-     * @param isViewImage    是否点击放大图片查看
-     * @param useCamera      是否使用拍照功能
-     * @param maxSelectCount 图片的最大选择数量，小于等于0时，不限数量，isSingle为false时才有用。
-     * @param selected       接收从外面传进来的已选择的图片列表。当用户原来已经有选择过图片，现在重新打开
-     *                       选择器，允许用户把先前选过的图片传进来，并把这些图片默认为选中状态。
-     */
-    public static void openActivity(android.app.Fragment fragment, int requestCode,
-                                    boolean isSingle, boolean isViewImage, boolean useCamera,
-                                    int maxSelectCount, ArrayList<String> selected) {
-        Intent intent = new Intent(fragment.getActivity(), ImageSelectorActivity.class);
-        intent.putExtras(dataPackages(isSingle, isViewImage, useCamera, maxSelectCount, selected));
-        fragment.startActivityForResult(intent, requestCode);
-    }
-
-    public static Bundle dataPackages(boolean isSingle, boolean isViewImage, boolean useCamera,
-                                      int maxSelectCount, ArrayList<String> selected) {
-        Bundle bundle = new Bundle();
-        bundle.putBoolean(ImageSelector.IS_SINGLE, isSingle);
-        bundle.putBoolean(ImageSelector.IS_VIEW_IMAGE, isViewImage);
-        bundle.putBoolean(ImageSelector.USE_CAMERA, useCamera);
-        bundle.putInt(ImageSelector.MAX_SELECT_COUNT, maxSelectCount);
-        bundle.putStringArrayList(ImageSelector.SELECTED, selected);
-        return bundle;
-    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_image_select);
 
         Intent intent = getIntent();
         mMaxCount = intent.getIntExtra(ImageSelector.MAX_SELECT_COUNT, 0);
@@ -183,36 +67,11 @@ public class ImageSelectorActivity extends AppCompatActivity {
         useCamera = intent.getBooleanExtra(ImageSelector.USE_CAMERA, true);
         mSelectedImages = intent.getStringArrayListExtra(ImageSelector.SELECTED);
 
-        setStatusBarColor();
-        initView();
-        initListener();
         initImageList();
+        initListener();
         checkPermissionAndLoadImages();
-        hideFolderList();
         setSelectImageCount(0);
-    }
 
-    /**
-     * 修改状态栏颜色
-     */
-    private void setStatusBarColor() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            Window window = getWindow();
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.setStatusBarColor(Color.parseColor("#373c3d"));
-        }
-    }
-
-    private void initView() {
-        rvImage = (RecyclerView) findViewById(R.id.rv_image);
-        rvFolder = (RecyclerView) findViewById(R.id.rv_folder);
-        tvConfirm = (TextView) findViewById(R.id.tv_confirm);
-        tvPreview = (TextView) findViewById(R.id.tv_preview);
-        btnConfirm = (FrameLayout) findViewById(R.id.btn_confirm);
-        btnPreview = (FrameLayout) findViewById(R.id.btn_preview);
-        tvFolderName = (TextView) findViewById(R.id.tv_folder_name);
-        tvTime = (TextView) findViewById(R.id.tv_time);
-        masking = findViewById(R.id.masking);
     }
 
     private void initListener() {
@@ -229,13 +88,6 @@ public class ImageSelectorActivity extends AppCompatActivity {
                 /*ArrayList<Image> images = new ArrayList<>();
                 images.addAll(mAdapter.getSelectImages());
                 toPreviewActivity(images, 0);*/
-            }
-        });
-
-        btnConfirm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                confirm();
             }
         });
 
@@ -272,6 +124,21 @@ public class ImageSelectorActivity extends AppCompatActivity {
                 changeTime();
             }
         });
+    }
+
+    /**
+     * 改变时间条显示的时间（显示图片列表中的第一个可见图片的时间）
+     */
+    private void changeTime() {
+        int firstVisibleItem = getFirstVisibleItem();
+        Image image = mAdapter.getFirstVisibleImage(firstVisibleItem);
+        if (image != null) {
+            String time = DateUtils.getImageTime(image.getTime() * 1000);
+            tvTime.setText(time);
+            showTime();
+            mHideHandler.removeCallbacks(mHide);
+            mHideHandler.postDelayed(mHide, 1500);
+        }
     }
 
     /**
@@ -319,12 +186,17 @@ public class ImageSelectorActivity extends AppCompatActivity {
         if (mFolders != null && !mFolders.isEmpty()) {
             isInitFolder = true;
             rvFolder.setLayoutManager(new LinearLayoutManager(ImageSelectorActivity.this));
-            FolderAdapter adapter = new FolderAdapter(ImageSelectorActivity.this, mFolders);
-            adapter.setOnFolderSelectListener(new FolderAdapter.OnFolderSelectListener() {
+            ImageFolderAdapter adapter = new ImageFolderAdapter(ImageSelectorActivity.this, mFolders);
+            adapter.setOnFolderSelectListener(new ImageFolderAdapter.OnFolderSelectListener() {
                 @Override
-                public void OnFolderSelect(Folder folder) {
+                public void OnImageFolderSelect(ImageFolder folder) {
                     setFolder(folder);
                     closeFolder();
+                }
+
+                @Override
+                public void OnVideoFolderSelect(VideoFolder folder) {
+
                 }
             });
             rvFolder.setAdapter(adapter);
@@ -332,24 +204,11 @@ public class ImageSelectorActivity extends AppCompatActivity {
     }
 
     /**
-     * 刚开始的时候文件夹列表默认是隐藏的
-     */
-    private void hideFolderList() {
-        rvFolder.post(new Runnable() {
-            @Override
-            public void run() {
-                rvFolder.setTranslationY(rvFolder.getHeight());
-                rvFolder.setVisibility(View.GONE);
-            }
-        });
-    }
-
-    /**
      * 设置选中的文件夹，同时刷新图片列表
      *
      * @param folder
      */
-    private void setFolder(Folder folder) {
+    private void setFolder(ImageFolder folder) {
         if (folder != null && mAdapter != null && !folder.equals(mFolder)) {
             mFolder = folder;
             tvFolderName.setText(folder.getName());
@@ -379,85 +238,26 @@ public class ImageSelectorActivity extends AppCompatActivity {
     }
 
     /**
-     * 弹出文件夹列表
+     * 检查权限并拍照。
      */
-    private void openFolder() {
-        if (!isOpenFolder) {
-            masking.setVisibility(View.VISIBLE);
-            ObjectAnimator animator = ObjectAnimator.ofFloat(rvFolder, "translationY",
-                    rvFolder.getHeight(), 0).setDuration(300);
-            animator.addListener(new AnimatorListenerAdapter() {
-                @Override
-                public void onAnimationStart(Animator animation) {
-                    super.onAnimationStart(animation);
-                    rvFolder.setVisibility(View.VISIBLE);
-                }
-            });
-            animator.start();
-            isOpenFolder = true;
+    private void checkPermissionAndCamera() {
+        int hasCameraPermission = ContextCompat.checkSelfPermission(getApplication(),
+                Manifest.permission.CAMERA);
+        if (hasCameraPermission == PackageManager.PERMISSION_GRANTED) {
+            //有调起相机拍照。
+            openCamera();
+        } else {
+            //没有权限，申请权限。
+            ActivityCompat.requestPermissions(ImageSelectorActivity.this,
+                    new String[]{Manifest.permission.CAMERA}, PERMISSION_CAMERA_REQUEST_CODE);
         }
     }
 
-    /**
-     * 收起文件夹列表
-     */
-    private void closeFolder() {
-        if (isOpenFolder) {
-            masking.setVisibility(View.GONE);
-            ObjectAnimator animator = ObjectAnimator.ofFloat(rvFolder, "translationY",
-                    0, rvFolder.getHeight()).setDuration(300);
-            animator.addListener(new AnimatorListenerAdapter() {
-                @Override
-                public void onAnimationEnd(Animator animation) {
-                    super.onAnimationEnd(animation);
-                    rvFolder.setVisibility(View.GONE);
-                }
-            });
-            animator.start();
-            isOpenFolder = false;
-        }
+    public void confirm(View view) {
+        confirm();
     }
 
-    /**
-     * 隐藏时间条
-     */
-    private void hideTime() {
-        if (isShowTime) {
-            ObjectAnimator.ofFloat(tvTime, "alpha", 1, 0).setDuration(300).start();
-            isShowTime = false;
-        }
-    }
-
-    /**
-     * 显示时间条
-     */
-    private void showTime() {
-        if (!isShowTime) {
-            ObjectAnimator.ofFloat(tvTime, "alpha", 0, 1).setDuration(300).start();
-            isShowTime = true;
-        }
-    }
-
-    /**
-     * 改变时间条显示的时间（显示图片列表中的第一个可见图片的时间）
-     */
-    private void changeTime() {
-        int firstVisibleItem = getFirstVisibleItem();
-        Image image = mAdapter.getFirstVisibleImage(firstVisibleItem);
-        if (image != null) {
-            String time = DateUtils.getImageTime(image.getTime() * 1000);
-            tvTime.setText(time);
-            showTime();
-            mHideHandler.removeCallbacks(mHide);
-            mHideHandler.postDelayed(mHide, 1500);
-        }
-    }
-
-    private int getFirstVisibleItem() {
-        return mLayoutManager.findFirstVisibleItemPosition();
-    }
-
-    private void confirm() {
+    private void confirm(){
         if (mAdapter == null) {
             return;
         }
@@ -568,22 +368,6 @@ public class ImageSelectorActivity extends AppCompatActivity {
     }
 
     /**
-     * 检查权限并拍照。
-     */
-    private void checkPermissionAndCamera() {
-        int hasCameraPermission = ContextCompat.checkSelfPermission(getApplication(),
-                Manifest.permission.CAMERA);
-        if (hasCameraPermission == PackageManager.PERMISSION_GRANTED) {
-            //有调起相机拍照。
-            openCamera();
-        } else {
-            //没有权限，申请权限。
-            ActivityCompat.requestPermissions(ImageSelectorActivity.this,
-                    new String[]{Manifest.permission.CAMERA}, PERMISSION_CAMERA_REQUEST_CODE);
-        }
-    }
-
-    /**
      * 处理权限申请的回调。
      *
      * @param requestCode
@@ -645,7 +429,7 @@ public class ImageSelectorActivity extends AppCompatActivity {
     private void loadImageForSDCard() {
         ImageModel.loadImageForSDCard(this, new ImageModel.DataCallback() {
             @Override
-            public void onSuccess(ArrayList<Folder> folders) {
+            public void onSuccess(ArrayList<ImageFolder> folders) {
                 mFolders = folders;
                 runOnUiThread(new Runnable() {
                     @Override
@@ -715,12 +499,5 @@ public class ImageSelectorActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN && isOpenFolder) {
-            closeFolder();
-            return true;
-        }
-        return super.onKeyDown(keyCode, event);
-    }
+
 }

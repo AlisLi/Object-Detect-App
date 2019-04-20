@@ -29,9 +29,8 @@ import static my.object_detect_app.utils.imageSelect.ImageUtils.getLocalBitmap;
 /**
  * User: Lizhiguo
  */
-public class LocalDetectActivity extends AppCompatActivity {
+public class PhotoDetectActivity extends AppCompatActivity {
     private static final int LOCAL_IMAGE_CHOICE_REQUEST_CODE = 0x0100;
-    private static final int LOCAL_VIDEO_CHOICE_REQUEST_CODE = 0x0101;
 
     private static boolean FLAG_IS_LOCAL_IMAGE = true;
 
@@ -52,7 +51,7 @@ public class LocalDetectActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_local_detect);
+        setContentView(R.layout.activity_photo_detect);
 
         croppedBitmap = Bitmap.createBitmap(INPUT_SIZE, INPUT_SIZE, Bitmap.Config.ARGB_8888);
 
@@ -151,11 +150,7 @@ public class LocalDetectActivity extends AppCompatActivity {
 
                 }
                 break;
-             // 选择视频
-            case LOCAL_VIDEO_CHOICE_REQUEST_CODE:
-
-
-                break;
+             //
         }
     }
 
@@ -171,7 +166,7 @@ public class LocalDetectActivity extends AppCompatActivity {
 
         getFragmentManager()
                 .beginTransaction()
-                .replace(R.id.local_container, imageFragment)
+                .replace(R.id.photo_container, imageFragment)
                 .commit();
     }
 

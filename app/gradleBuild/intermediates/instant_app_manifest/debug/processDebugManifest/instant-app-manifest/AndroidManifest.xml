@@ -36,8 +36,10 @@
             </intent-filter>
         </activity>
         <activity android:name="my.object_detect_app.activities.ClassifierActivity" />
-        <activity android:name="my.object_detect_app.activities.LocalDetectActivity" />
+        <activity android:name="my.object_detect_app.activities.PhotoDetectActivity" />
         <activity android:name="my.object_detect_app.activities.ImageSelectorActivity" />
+        <activity android:name="my.object_detect_app.activities.VideoDetectActivity" />
+        <activity android:name="my.object_detect_app.activities.VideoSelectorActivity" />
     </application>
 
 </manifest>

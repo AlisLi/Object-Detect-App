@@ -54,11 +54,11 @@
             android:background="@drawable/button_drawable"
             android:foreground="@drawable/ripple_foreground"
             android:id="@+id/rel_local_photo"
-            android:onClick="toLocalPhoto">
+            android:onClick="toDetectPhoto">
 
             <TextView
                 style="@style/TextMidInnerMain"
-                android:text="@string/txt_btn_local_photo"/>
+                android:text="@string/txt_btn_photo_detect"/>
 
             <ImageView
                 style="@style/ImageEndInnerMain"
@@ -92,11 +92,11 @@
             android:background="@drawable/button_drawable"
             android:foreground="@drawable/ripple_foreground"
             android:id="@+id/rel_local_video"
-            android:onClick="toLocalVideo">
+            android:onClick="toDetectVideo">
 
             <TextView
                 style="@style/TextMidInnerMain"
-                android:text="@string/txt_btn_local_video"/>
+                android:text="@string/txt_btn_video_detect"/>
 
             <ImageView
                 style="@style/ImageEndInnerMain"

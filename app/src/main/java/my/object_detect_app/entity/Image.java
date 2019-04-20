@@ -5,6 +5,7 @@ import android.os.Parcelable;
 
 /**
  * 图片实体类
+ * User: Lizhiguo
  */
 public class Image implements Parcelable {
 

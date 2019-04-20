@@ -11,6 +11,8 @@
     <string name="txt_btn_net_photo">网络照片检测</string>
     <string name="txt_btn_net_video">网络视频检测</string>
     <string name="txt_btn_detect_result">历史检测结果</string>
+    <string name="txt_btn_photo_detect">照片检测</string>
+    <string name="txt_btn_video_detect">视频检测</string>
 
 
     <string name="image">图片</string>

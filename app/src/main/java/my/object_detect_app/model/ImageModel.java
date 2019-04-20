@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import my.object_detect_app.entity.Folder;
 import my.object_detect_app.entity.Image;
+import my.object_detect_app.entity.ImageFolder;
 import my.object_detect_app.utils.imageSelect.StringUtils;
 
 public class ImageModel {
@@ -90,9 +90,9 @@ public class ImageModel {
      * @param images
      * @return
      */
-    private static ArrayList<Folder> splitFolder(ArrayList<Image> images) {
-        ArrayList<Folder> folders = new ArrayList<>();
-        folders.add(new Folder("全部图片", images));
+    private static ArrayList<ImageFolder> splitFolder(ArrayList<Image> images) {
+        ArrayList<ImageFolder> folders = new ArrayList<>();
+        folders.add(new ImageFolder("全部图片", images));
 
         if (images != null && !images.isEmpty()) {
             int size = images.size();
@@ -100,7 +100,7 @@ public class ImageModel {
                 String path = images.get(i).getPath();
                 String name = getFolderName(path);
                 if (StringUtils.isNotEmptyString(name)) {
-                    Folder folder = getFolder(name, folders);
+                    ImageFolder folder = getFolder(name, folders);
                     folder.addImage(images.get(i));
                 }
             }
@@ -137,22 +137,22 @@ public class ImageModel {
         return "";
     }
 
-    private static Folder getFolder(String name, List<Folder> folders) {
+    private static ImageFolder getFolder(String name, List<ImageFolder> folders) {
         if (!folders.isEmpty()) {
             int size = folders.size();
             for (int i = 0; i < size; i++) {
-                Folder folder = folders.get(i);
+                ImageFolder folder = folders.get(i);
                 if (name.equals(folder.getName())) {
                     return folder;
                 }
             }
         }
-        Folder newFolder = new Folder(name);
+        ImageFolder newFolder = new ImageFolder(name);
         folders.add(newFolder);
         return newFolder;
     }
 
     public interface DataCallback {
-        void onSuccess(ArrayList<Folder> folders);
+        void onSuccess(ArrayList<ImageFolder> folders);
     }
 }

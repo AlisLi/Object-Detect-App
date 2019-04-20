@@ -903,7 +903,6 @@ id line1
 id line3
 id listMode
 id list_item
-id local_container
 id masking
 id message
 id middle
@@ -920,6 +919,7 @@ id packed
 id parent
 id parentPanel
 id percent
+id photo_container
 id progress_circular
 id progress_horizontal
 id radio
@@ -989,6 +989,7 @@ id tv_time
 id uniform
 id up
 id useLogo
+id video_container
 id withText
 id wrap
 id wrap_content
@@ -1027,8 +1028,9 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_camera
 layout activity_image_select
-layout activity_local_detect
 layout activity_main
+layout activity_photo_detect
+layout activity_video_detect
 layout adapter_camera
 layout adapter_folder
 layout adapter_images_item
@@ -1106,7 +1108,9 @@ string txt_btn_local_photo
 string txt_btn_local_video
 string txt_btn_net_photo
 string txt_btn_net_video
+string txt_btn_photo_detect
 string txt_btn_real_time_video
+string txt_btn_video_detect
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style Animation_AppCompat_Dialog

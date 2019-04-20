@@ -51,7 +51,8 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="16dp"
-            android:foreground="@drawable/btn_foreground_selector">
+            android:foreground="@drawable/btn_foreground_selector"
+            android:onClick="confirm">
 
             <TextView
                 android:id="@+id/tv_confirm"

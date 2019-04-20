@@ -1,10 +1,7 @@
 package my.object_detect_app.adapter;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -13,51 +10,28 @@ import com.bumptech.glide.request.RequestOptions;
 import java.io.File;
 import java.util.ArrayList;
 
-import androidx.recyclerview.widget.RecyclerView;
-import my.object_detect_app.R;
 import my.object_detect_app.entity.Image;
 
-public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> {
-
-    private Context mContext;
+/**
+ * User: Lizhiguo
+ */
+public class ImageAdapter extends SelectAdapter {
     private ArrayList<Image> mImages;
-    private LayoutInflater mInflater;
 
     //保存选中的图片
     private ArrayList<Image> mSelectImages = new ArrayList<>();
+
     private OnImageSelectListener mSelectListener;
     private OnItemClickListener mItemClickListener;
-    private int mMaxCount;
-    private boolean isSingle;
-    private boolean isViewImage;
-
-    private static final int TYPE_CAMERA = 1;
-    private static final int TYPE_IMAGE = 2;
-
-    private boolean useCamera;
 
     /**
+     * @param context
      * @param maxCount    图片的最大选择数量，小于等于0时，不限数量，isSingle为false时才有用。
      * @param isSingle    是否单选
      * @param isViewImage 是否点击放大图片查看
      */
     public ImageAdapter(Context context, int maxCount, boolean isSingle, boolean isViewImage) {
-        mContext = context;
-        this.mInflater = LayoutInflater.from(mContext);
-        mMaxCount = maxCount;
-        this.isSingle = isSingle;
-        this.isViewImage = isViewImage;
-    }
-
-    @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        if (viewType == TYPE_IMAGE) {
-            View view = mInflater.inflate(R.layout.adapter_images_item, parent, false);
-            return new ViewHolder(view);
-        } else {
-            View view = mInflater.inflate(R.layout.adapter_camera, parent, false);
-            return new ViewHolder(view);
-        }
+        super(context, maxCount, isSingle, isViewImage);
     }
 
     @Override
@@ -105,15 +79,6 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
         }
     }
 
-    @Override
-    public int getItemViewType(int position) {
-        if (useCamera && position == 0) {
-            return TYPE_CAMERA;
-        } else {
-            return TYPE_IMAGE;
-        }
-    }
-
     private void checkedImage(ViewHolder holder, Image image) {
         if (mSelectImages.contains(image)) {
             //如果图片已经选中，就取消选中
@@ -156,7 +121,6 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
         }
     }
 
-
     @Override
     public int getItemCount() {
         return useCamera ? getImageCount() + 1 : getImageCount();
@@ -189,19 +153,6 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
             }
         }
         return null;
-    }
-
-    /**
-     * 设置图片选中和未选中的效果
-     */
-    private void setItemSelect(ViewHolder holder, boolean isSelect) {
-        if (isSelect) {
-            holder.ivSelectIcon.setImageResource(R.mipmap.icon_image_select);
-            holder.ivMasking.setAlpha(0.5f);
-        } else {
-            holder.ivSelectIcon.setImageResource(R.mipmap.icon_image_un_select);
-            holder.ivMasking.setAlpha(0.2f);
-        }
     }
 
     private void clearImageSelect() {
@@ -256,25 +207,6 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
         this.mItemClickListener = listener;
     }
 
-    static class ViewHolder extends RecyclerView.ViewHolder {
-
-        ImageView ivImage;
-        ImageView ivSelectIcon;
-        ImageView ivMasking;
-        ImageView ivGif;
-        ImageView ivCamera;
-
-        public ViewHolder(View itemView) {
-            super(itemView);
-            ivImage = itemView.findViewById(R.id.iv_image);
-            ivSelectIcon = itemView.findViewById(R.id.iv_select);
-            ivMasking = itemView.findViewById(R.id.iv_masking);
-            ivGif = itemView.findViewById(R.id.iv_gif);
-
-            ivCamera = itemView.findViewById(R.id.iv_camera);
-        }
-    }
-
     public interface OnImageSelectListener {
         void OnImageSelect(Image image, boolean isSelect, int selectCount);
     }
@@ -284,4 +216,5 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
 
         void OnCameraClick();
     }
+
 }

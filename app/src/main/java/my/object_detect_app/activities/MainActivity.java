@@ -21,14 +21,16 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void toLocalPhoto(View view){
+    public void toDetectPhoto(View view){
         Intent intent = new Intent();
-        intent.setClass(this, LocalDetectActivity.class);
+        intent.setClass(this, PhotoDetectActivity.class);
         startActivity(intent);
     }
 
-    public void toLocalVideo(View view){
-
+    public void toDetectVideo(View view){
+        Intent intent = new Intent();
+        intent.setClass(this, VideoDetectActivity.class);
+        startActivity(intent);
     }
 
     public void toNetPhoto(View view){

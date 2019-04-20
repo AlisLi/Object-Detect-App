@@ -93,10 +93,10 @@ public final class R {
         public static final int italic = 0x7f070051;
         public static final int line1 = 0x7f070059;
         public static final int line3 = 0x7f07005a;
-        public static final int normal = 0x7f070064;
-        public static final int notification_background = 0x7f070065;
-        public static final int notification_main_column = 0x7f070066;
-        public static final int notification_main_column_container = 0x7f070067;
+        public static final int normal = 0x7f070063;
+        public static final int notification_background = 0x7f070064;
+        public static final int notification_main_column = 0x7f070065;
+        public static final int notification_main_column_container = 0x7f070066;
         public static final int right_icon = 0x7f070078;
         public static final int right_side = 0x7f070079;
         public static final int tag_transition_group = 0x7f07009d;
@@ -115,12 +115,12 @@ public final class R {
     public static final class layout {
         private layout() {}
 
-        public static final int notification_action = 0x7f090025;
-        public static final int notification_action_tombstone = 0x7f090026;
-        public static final int notification_template_custom_big = 0x7f090027;
-        public static final int notification_template_icon_group = 0x7f090028;
-        public static final int notification_template_part_chronometer = 0x7f090029;
-        public static final int notification_template_part_time = 0x7f09002a;
+        public static final int notification_action = 0x7f090026;
+        public static final int notification_action_tombstone = 0x7f090027;
+        public static final int notification_template_custom_big = 0x7f090028;
+        public static final int notification_template_icon_group = 0x7f090029;
+        public static final int notification_template_part_chronometer = 0x7f09002a;
+        public static final int notification_template_part_time = 0x7f09002b;
     }
     public static final class string {
         private string() {}
