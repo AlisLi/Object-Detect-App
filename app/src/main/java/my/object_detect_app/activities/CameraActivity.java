@@ -1,13 +1,10 @@
 package my.object_detect_app.activities;
 
-import android.Manifest;
 import android.content.pm.PackageManager;
 import android.media.ImageReader.OnImageAvailableListener;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Size;
 import android.view.WindowManager;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import my.object_detect_app.R;
@@ -19,7 +16,6 @@ import my.object_detect_app.view.OverlayView;
  * User: Lizhiguo
  */
 public abstract class CameraActivity extends BaseActivity implements OnImageAvailableListener {
-    private static final int PERMISSIONS_REQUEST = 1;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -34,8 +30,6 @@ public abstract class CameraActivity extends BaseActivity implements OnImageAvai
             requestPermission();
         }
     }
-
-
 
     @Override
     public void onRequestPermissionsResult(final int requestCode, final String[] permissions,
@@ -67,33 +61,6 @@ public abstract class CameraActivity extends BaseActivity implements OnImageAvai
                 .beginTransaction()
                 .replace(R.id.container, cameraConnectionFragment)
                 .commit();
-    }
-
-    /**
-     * 要求获取相机和存储权限
-     */
-    private void requestPermission() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (shouldShowRequestPermissionRationale(Manifest.permission.CAMERA)
-                    || shouldShowRequestPermissionRationale(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-                Toast.makeText(CameraActivity.this,
-                        "Camera AND storage permission are required for this demo", Toast.LENGTH_LONG).show();
-            }
-            requestPermissions(new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, PERMISSIONS_REQUEST);
-        }
-    }
-
-    /**
-     * 检查是否有权限
-     * @return
-     */
-    private boolean hasPermission() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            return checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED
-                    && checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED;
-        } else {
-            return true;
-        }
     }
 
     public void addCallback(final OverlayView.DrawCallback callback) {

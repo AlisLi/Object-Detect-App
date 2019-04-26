@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void toDetectPhoto(View view){
         Intent intent = new Intent();
-        intent.setClass(this, PhotoDetectActivity.class);
+        intent.setClass(this, ImageDetectActivity.class);
         startActivity(intent);
     }
 

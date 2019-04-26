@@ -27,7 +27,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.ClassifierActivity"></activity>
-        <activity android:name=".activities.PhotoDetectActivity"></activity>
+        <activity android:name=".activities.ImageDetectActivity"></activity>
         <activity android:name=".activities.ImageSelectorActivity"></activity>
         <activity android:name=".activities.VideoDetectActivity"></activity>
         <activity android:name=".activities.VideoSelectorActivity"></activity>

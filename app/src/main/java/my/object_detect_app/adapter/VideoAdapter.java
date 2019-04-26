@@ -1,7 +1,6 @@
 package my.object_detect_app.adapter;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.View;
 
 import com.bumptech.glide.Glide;
@@ -12,8 +11,6 @@ import java.io.File;
 import java.util.ArrayList;
 
 import my.object_detect_app.entity.Video;
-
-import static my.object_detect_app.Config.LOGGING_TAG;
 
 /**
  * User: Lizhiguo
@@ -44,7 +41,7 @@ public class VideoAdapter extends SelectAdapter {
             Glide.with(mContext).load(new File(video.getThumbnailPath()))
                     .apply(new RequestOptions().diskCacheStrategy(DiskCacheStrategy.NONE))
                     .into(holder.ivImage);
-            Log.i(LOGGING_TAG,"thumbnailPath is :" + video.getThumbnailPath());
+            // Log.i(LOGGING_TAG,"thumbnailPath is :" + video.getThumbnailPath());
 
             setItemSelect(holder, mSelectVideos.contains(video));
 

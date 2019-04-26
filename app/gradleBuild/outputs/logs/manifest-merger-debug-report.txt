@@ -191,7 +191,7 @@ activity#my.object_detect_app.activities.ClassifierActivity
 ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:29:9-76
 	android:name
 		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:29:19-64
-activity#my.object_detect_app.activities.PhotoDetectActivity
+activity#my.object_detect_app.activities.ImageDetectActivity
 ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:30:9-77
 	android:name
 		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:30:19-65

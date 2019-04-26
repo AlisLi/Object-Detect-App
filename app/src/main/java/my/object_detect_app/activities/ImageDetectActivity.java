@@ -29,7 +29,7 @@ import static my.object_detect_app.utils.imageSelect.ImageUtils.getLocalBitmap;
 /**
  * User: Lizhiguo
  */
-public class PhotoDetectActivity extends AppCompatActivity {
+public class ImageDetectActivity extends AppCompatActivity {
     private static final int LOCAL_IMAGE_CHOICE_REQUEST_CODE = 0x0100;
 
     private static boolean FLAG_IS_LOCAL_IMAGE = true;
@@ -80,7 +80,9 @@ public class PhotoDetectActivity extends AppCompatActivity {
     // 生成检测结果
     public void getLocalDetectResult(View view){
         if(FLAG_IS_LOCAL_IMAGE){
-            // 检测照片
+            /**
+             * 本地检测照片
+              */
 
             // 处理图像
             cropBitmap();
