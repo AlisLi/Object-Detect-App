@@ -23,7 +23,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btn_local_choice_video"
-        android:text="选择视频"/>
+        android:onClick="netDetect"
+        android:text="网络检测"/>
 
     <Button
         android:layout_width="wrap_content"

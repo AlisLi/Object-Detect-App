@@ -14,4 +14,14 @@ public interface Config {
     String OUTPUT_NAME = "output"; // The label of the output node.
 
     String LOGGING_TAG = "Object-Detect-App";
+
+    String NET_URL = "http://10.10.97.16:8080/ObjectDetectService/";
+//    String NET_URL = "http://192.168.43.58:8080/ObjectDetectService/";
+
+    // dialog text
+    String DIALOG_DETECTING = "检测中。。。";
+    String DIALOG_DOWNLOADING = "下载中。。。";
+    String DIALOG_DOWNLOADED = "下载完成";
+    String DIALOG_DOWNLOAD_ERROR = "下载失败";
+
 }

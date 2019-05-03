@@ -9,6 +9,15 @@ import android.os.SystemClock;
 import android.util.Log;
 import android.view.View;
 
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.Callback;
+import com.zyao89.view.zloading.ZLoadingDialog;
+import com.zyao89.view.zloading.Z_TYPE;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,18 +27,28 @@ import my.object_detect_app.R;
 import my.object_detect_app.TensorFlowImageRecognizer;
 import my.object_detect_app.entity.Recognition;
 import my.object_detect_app.utils.ImageUtils;
+import my.object_detect_app.utils.LoadingUtils;
+import my.object_detect_app.utils.PathUtils;
 import my.object_detect_app.utils.imageSelect.ImageSelector;
 import my.object_detect_app.view.ImageFragment;
 import my.object_detect_app.view.OverlayView;
+import okhttp3.Call;
+import okhttp3.Response;
 
+import static my.object_detect_app.Config.DIALOG_DETECTING;
+import static my.object_detect_app.Config.DIALOG_DOWNLOADED;
+import static my.object_detect_app.Config.DIALOG_DOWNLOADING;
+import static my.object_detect_app.Config.DIALOG_DOWNLOAD_ERROR;
 import static my.object_detect_app.Config.INPUT_SIZE;
 import static my.object_detect_app.Config.LOGGING_TAG;
+import static my.object_detect_app.Config.NET_URL;
 import static my.object_detect_app.utils.imageSelect.ImageUtils.getLocalBitmap;
 
 /**
  * User: Lizhiguo
  */
 public class ImageDetectActivity extends AppCompatActivity {
+    private static final String TAG = "ImageDetectActivity";
     private static final int LOCAL_IMAGE_CHOICE_REQUEST_CODE = 0x0100;
 
     private static boolean FLAG_IS_LOCAL_IMAGE = true;
@@ -46,12 +65,16 @@ public class ImageDetectActivity extends AppCompatActivity {
     private long lastProcessingTimeMs;  // 检测时间
     private TensorFlowImageRecognizer recognizer;
 
+    private ZLoadingDialog mDialog;
+
     private OverlayView overlayView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photo_detect);
+
+        mDialog = new ZLoadingDialog(ImageDetectActivity.this);
 
         croppedBitmap = Bitmap.createBitmap(INPUT_SIZE, INPUT_SIZE, Bitmap.Config.ARGB_8888);
 
@@ -63,6 +86,114 @@ public class ImageDetectActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         overlayView = findViewById(R.id.overlay_image);
+    }
+
+    public void netDetect(View view){
+        LoadingUtils.duringDialog(mDialog, DIALOG_DETECTING, Z_TYPE.SNAKE_CIRCLE);
+
+
+        File file = new File(imagePaths.get(0));
+        Log.i(TAG, "netDetect()");
+
+        OkHttpUtils.post()//
+                .addFile("file", file.getName(), file)//
+                .addParams("algorithmName", "faster-rcnn")
+                .addParams("net", "zf")
+                .url(NET_URL + "algorithm/upload")
+                .build()//
+                .connTimeOut(200000000)
+                .readTimeOut(200000000)
+                .writeTimeOut(200000000)
+                .execute(new Callback() {
+                    @Override
+                    public Object parseNetworkResponse(Response response, int id) throws Exception {
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                mDialog.cancel();
+                                LoadingUtils.duringDialog(mDialog, DIALOG_DOWNLOADING, Z_TYPE.INFECTION_BALL);
+                            }
+                        });
+
+                        Log.d(TAG, "download parseNetworkResponse()");
+                        Log.d(TAG, "response header  = " + response.header("Content-disposition"));
+
+                        String fileName = response.header("Content-disposition").split(";")[1];
+
+                        InputStream is = null;
+                        byte[] buf = new byte[2048];
+                        int len = 0;
+                        FileOutputStream fos = null;
+                        String resultImagePath = PathUtils.getSDPath() + "/DCIM/Camera/" + fileName;
+                        try {
+                            double current = 0;
+                            double total = response.body().contentLength();
+
+                            is = response.body().byteStream();
+                            File file = new File(resultImagePath);
+                            Log.d(TAG,"file path is : " + PathUtils.getSDPath());
+
+                            fos = new FileOutputStream(file);
+                            while ((len = is.read(buf)) != -1) {
+                                current += len;
+                                fos.write(buf, 0, len);
+                                Log.i(TAG, "download current------>" + current);
+                            }
+
+                            fos.flush();
+
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        } finally {
+                            try {
+                                if (is != null) is.close();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            try {
+                                if (fos != null) fos.close();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                mDialog.cancel();
+                                LoadingUtils.duringDialog(mDialog, DIALOG_DOWNLOADED, Z_TYPE.LEAF_ROTATE);
+                                LoadingUtils.cancelSecondDialog(mDialog, 1000);
+                            }
+                        });
+
+                        // 将图片显示为结果图片
+                        setImageFragment(resultImagePath);
+
+                        return null;
+                    }
+
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                mDialog.cancel();
+                                LoadingUtils.duringDialog(mDialog, DIALOG_DOWNLOAD_ERROR, Z_TYPE.LEAF_ROTATE);
+                                LoadingUtils.cancelSecondDialog(mDialog, 1000);
+                            }
+                        });
+                        Log.d(TAG, "download error()");
+                        e.printStackTrace();
+                    }
+
+                    @Override
+                    public void onResponse(Object response, int id) {
+                        Log.d(TAG, "download onResponse()");
+
+                    }
+                });
+
+
     }
 
     // 选择本地图片

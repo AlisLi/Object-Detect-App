@@ -70,4 +70,8 @@ dependencies {
     compile 'com.github.bumptech.glide:glide:4.5.0'
     //图片缩放库，用于图片的预览
     compile 'com.github.chrisbanes:PhotoView:2.3.0'
+    //网络传输工具
+    compile 'com.zhy:okhttputils:2.6.2'
+    //Loading View
+    compile 'com.zyao89:zloading:1.2.0'
 }

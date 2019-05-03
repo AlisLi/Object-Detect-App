@@ -1,0 +1,1 @@
+my.object_detect_app.test

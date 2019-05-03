@@ -4,9 +4,14 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.media.MediaMetadataRetriever;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.Callback;
+
+import java.io.File;
 import java.util.ArrayList;
 
 import androidx.annotation.Nullable;
@@ -15,11 +20,16 @@ import my.object_detect_app.R;
 import my.object_detect_app.utils.MediaHelper;
 import my.object_detect_app.utils.imageSelect.ImageSelector;
 import my.object_detect_app.view.videoPlayer.VideoPlayer;
+import okhttp3.Call;
+import okhttp3.Response;
+
+import static my.object_detect_app.Config.NET_URL;
 
 /**
  * User: Lizhiguo
  */
 public class VideoDetectActivity extends AppCompatActivity {
+    private static final String TAG = "VideoDetectActivity";
     private static final int LOCAL_VIDEO_CHOICE_REQUEST_CODE = 0x0000;
 
     private ArrayList<String> videoPaths;
@@ -57,6 +67,33 @@ public class VideoDetectActivity extends AppCompatActivity {
         intent.putExtra(ImageSelector.USE_CAMERA, false);       //不使用照相机
 
         startActivityForResult(intent, LOCAL_VIDEO_CHOICE_REQUEST_CODE);
+    }
+
+    public void getDetectResult(View view){
+        File file = new File(videoPaths.get(0));
+        Log.i(TAG, "netDetect()");
+
+        OkHttpUtils.post()//
+                .addFile("file", file.getName(), file)//
+                .addParams("algorithmName", "faster-rcnn")
+                .url(NET_URL + "algorithm/upload")
+                .build()//
+                .execute(new Callback() {
+                    @Override
+                    public Object parseNetworkResponse(Response response, int id) throws Exception {
+                        return null;
+                    }
+
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+
+                    }
+
+                    @Override
+                    public void onResponse(Object response, int id) {
+
+                    }
+                });
     }
 
     @Override

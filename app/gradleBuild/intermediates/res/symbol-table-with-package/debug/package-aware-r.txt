@@ -351,6 +351,10 @@ attr windowFixedWidthMinor
 attr windowMinWidthMajor
 attr windowMinWidthMinor
 attr windowNoTitle
+attr z_color
+attr z_duration_percent
+attr z_text
+attr z_type
 bool abc_action_bar_embed_tabs
 bool abc_allow_stacked_button_bar
 bool abc_config_actionMenuItemAllCaps
@@ -586,6 +590,8 @@ color wheat
 color white
 color whitesmoke
 color yellow
+color z_dialog_bg_color
+color z_transparent
 dimen abc_action_bar_content_inset_material
 dimen abc_action_bar_content_inset_with_nav
 dimen abc_action_bar_default_height_material
@@ -661,6 +667,7 @@ dimen abc_text_size_subhead_material
 dimen abc_text_size_subtitle_material_toolbar
 dimen abc_text_size_title_material
 dimen abc_text_size_title_material_toolbar
+dimen alert_width
 dimen compat_button_inset_horizontal_material
 dimen compat_button_inset_vertical_material
 dimen compat_button_padding_horizontal_material
@@ -795,6 +802,7 @@ drawable btn_back_selector
 drawable btn_foreground_selector
 drawable btn_green_shape
 drawable button_drawable
+drawable dialog_background
 drawable enlarge_fullscreen
 drawable folder_bg
 drawable ic_launcher_background
@@ -825,10 +833,28 @@ drawable tooltip_frame_light
 drawable tv_time_bg
 id ALT
 id CTRL
+id ChartRectBuilder
+id CircleBuilder
+id ClockBuilder
+id DoubleCircleBuilder
+id ElasticBallBuilder
 id FUNCTION
+id InfectionBallBuilder
+id IntertwineBuilder
+id LeafBuilder
 id META
+id MusicPathBuilder
+id PacManBuilder
+id RotateCircleBuilder
 id SHIFT
 id SYM
+id SearchPathBuilder
+id SingleCircleBuilder
+id SnakeCircleBuilder
+id StairsPathBuilder
+id StairsRectBuilder
+id StarBuilder
+id TextBuilder
 id action_bar
 id action_bar_activity_content
 id action_bar_container
@@ -1021,6 +1047,10 @@ id video_view
 id withText
 id wrap
 id wrap_content
+id z_custom_text_view
+id z_loading
+id z_loading_view
+id z_text_view
 integer abc_config_activityDefaultDur
 integer abc_config_activityShortDur
 integer cancel_button_image_alpha
@@ -1076,6 +1106,7 @@ layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
 layout video_controller
 layout video_player
+layout z_loading_dialog
 mipmap beautiful
 mipmap ic_gif
 mipmap ic_launcher
@@ -1494,6 +1525,7 @@ style Widget_AppCompat_Toolbar_Button_Navigation
 style Widget_Compat_NotificationActionContainer
 style Widget_Compat_NotificationActionText
 style Widget_Support_CoordinatorLayout
+style alert_dialog
 styleable ActionBar background backgroundSplit backgroundStacked contentInsetEnd contentInsetEndWithActions contentInsetLeft contentInsetRight contentInsetStart contentInsetStartWithNavigation customNavigationLayout displayOptions divider elevation height hideOnContentScroll homeAsUpIndicator homeLayout icon indeterminateProgressStyle itemPadding logo navigationMode popupTheme progressBarPadding progressBarStyle subtitle subtitleTextStyle title titleTextStyle
 styleable ActionBarLayout android_layout_gravity
 styleable ActionMenuItemView android_minWidth
@@ -1543,3 +1575,6 @@ styleable Toolbar android_gravity android_minHeight buttonGravity collapseConten
 styleable View android_theme android_focusable paddingEnd paddingStart theme
 styleable ViewBackgroundHelper android_background backgroundTint backgroundTintMode
 styleable ViewStubCompat android_id android_layout android_inflatedId
+styleable ZLoadingTextView z_text
+styleable ZLoadingView z_color z_duration_percent z_type
+xml network_security_config
