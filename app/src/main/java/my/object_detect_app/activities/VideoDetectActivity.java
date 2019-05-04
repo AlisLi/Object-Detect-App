@@ -10,19 +10,30 @@ import android.view.WindowManager;
 
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.Callback;
+import com.zyao89.view.zloading.ZLoadingDialog;
+import com.zyao89.view.zloading.Z_TYPE;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import my.object_detect_app.R;
+import my.object_detect_app.utils.LoadingUtils;
 import my.object_detect_app.utils.MediaHelper;
+import my.object_detect_app.utils.PathUtils;
 import my.object_detect_app.utils.imageSelect.ImageSelector;
 import my.object_detect_app.view.videoPlayer.VideoPlayer;
 import okhttp3.Call;
 import okhttp3.Response;
 
+import static my.object_detect_app.Config.DIALOG_DETECTING;
+import static my.object_detect_app.Config.DIALOG_DOWNLOADED;
+import static my.object_detect_app.Config.DIALOG_DOWNLOADING;
+import static my.object_detect_app.Config.DIALOG_DOWNLOAD_ERROR;
 import static my.object_detect_app.Config.NET_URL;
 
 /**
@@ -38,6 +49,8 @@ public class VideoDetectActivity extends AppCompatActivity {
 
     private VideoPlayer mVideoPlayer;
 
+    private ZLoadingDialog mDialog;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +59,7 @@ public class VideoDetectActivity extends AppCompatActivity {
         setContentView(R.layout.activity_video_detect);
 
         mVideoPlayer = findViewById(R.id.video_player);
+        mDialog = new ZLoadingDialog(VideoDetectActivity.this);
 
 
     }
@@ -70,28 +84,114 @@ public class VideoDetectActivity extends AppCompatActivity {
     }
 
     public void getDetectResult(View view){
+        // 检测时，如果视频播放，则暂停
+        if(MediaHelper.getInstance().isPlaying()){
+            mVideoPlayer.mediaController.play();
+        }
+
+        LoadingUtils.duringDialog(mDialog, DIALOG_DETECTING, Z_TYPE.SNAKE_CIRCLE);
+
         File file = new File(videoPaths.get(0));
         Log.i(TAG, "netDetect()");
 
         OkHttpUtils.post()//
                 .addFile("file", file.getName(), file)//
                 .addParams("algorithmName", "faster-rcnn")
+                .addParams("net", "zf")
                 .url(NET_URL + "algorithm/upload")
                 .build()//
+                .connTimeOut(200000000)
+                .readTimeOut(200000000)
+                .writeTimeOut(200000000)
                 .execute(new Callback() {
                     @Override
                     public Object parseNetworkResponse(Response response, int id) throws Exception {
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                mDialog.cancel();
+                                LoadingUtils.duringDialog(mDialog, DIALOG_DOWNLOADING, Z_TYPE.INFECTION_BALL);
+                            }
+                        });
+                        Log.i(TAG, "response.headers() ： " + response.headers().toString());
+                        String fileName = response.header("Content-disposition").split(";")[1];
+
+                        InputStream is = null;
+                        byte[] buf = new byte[2048];
+                        int len = 0;
+                        FileOutputStream fos = null;
+                        String resultVideoPath = PathUtils.getSDPath() + "/DCIM/Camera/" + fileName;
+                        try {
+                            double current = 0;
+                            double total = response.body().contentLength();
+
+                            is = response.body().byteStream();
+                            File file = new File(resultVideoPath);
+                            Log.d(TAG,"file path is : " + PathUtils.getSDPath());
+
+                            fos = new FileOutputStream(file);
+                            while ((len = is.read(buf)) != -1) {
+                                current += len;
+                                fos.write(buf, 0, len);
+                                Log.i(TAG, "download current------>" + current);
+                            }
+
+                            fos.flush();
+
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        } finally {
+                            try {
+                                if (is != null) is.close();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            try {
+                                if (fos != null) fos.close();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                mDialog.cancel();
+                                LoadingUtils.duringDialog(mDialog, DIALOG_DOWNLOADED, Z_TYPE.LEAF_ROTATE);
+                                LoadingUtils.cancelSecondDialog(mDialog, 1000);
+                            }
+                        });
+
+                        //将视频显示为处理过后的视频
+                        // 设置是一个新的视频
+                        mVideoPlayer.mediaController.setIsNewVideo(true);
+                        // 获取视频路径
+                        mVideoPlayer.setVideoPath(resultVideoPath);
+                        // 设置视频操作可见
+                        mVideoPlayer.setVisibility(View.VISIBLE);
+                        //设置为初始化状态
+                        mVideoPlayer.initViewDisplay();
+
                         return null;
                     }
 
                     @Override
                     public void onError(Call call, Exception e, int id) {
-
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                mDialog.cancel();
+                                LoadingUtils.duringDialog(mDialog, DIALOG_DOWNLOAD_ERROR, Z_TYPE.LEAF_ROTATE);
+                                LoadingUtils.cancelSecondDialog(mDialog, 1000);
+                            }
+                        });
+                        Log.d(TAG, "download error()");
+                        e.printStackTrace();
                     }
 
                     @Override
                     public void onResponse(Object response, int id) {
-
+                        Log.d(TAG, "download onResponse()");
                     }
                 });
     }
@@ -114,11 +214,6 @@ public class VideoDetectActivity extends AppCompatActivity {
                     mVideoPlayer.setVisibility(View.VISIBLE);
                     //设置为初始化状态
                     mVideoPlayer.initViewDisplay();
-
-                    videoBitmaps = getBitmapsFromVideo(videoPaths.get(0));
-
-                    //将获取的视频显示到Fragment
-                    setVideoFragment();
 
 
                 }
