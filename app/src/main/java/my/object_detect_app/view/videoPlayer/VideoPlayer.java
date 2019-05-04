@@ -12,6 +12,7 @@ import android.widget.RelativeLayout;
 
 import my.object_detect_app.R;
 import my.object_detect_app.utils.MediaHelper;
+import my.object_detect_app.view.AutoFitTextureView;
 
 /**
  * User: Lizhiguo
@@ -20,7 +21,7 @@ public class VideoPlayer extends RelativeLayout {
     private static final String  TAG = "VideoPlayer";
 
     private String videoPath;
-    public TextureView videoView;
+    public AutoFitTextureView videoView;
     public VideoMediaController mediaController;
 
     public MediaPlayer mPlayer;
@@ -167,6 +168,21 @@ public class VideoPlayer extends RelativeLayout {
 
     public void setVideoPath(String videoPath) {
         this.videoPath = videoPath;
+
+        android.media.MediaMetadataRetriever mmr = new android.media.MediaMetadataRetriever();
+        mmr.setDataSource(this.videoPath);
+        String width = mmr.extractMetadata(android.media.MediaMetadataRetriever.METADATA_KEY_VIDEO_WIDTH);//宽
+        String height = mmr.extractMetadata(android.media.MediaMetadataRetriever.METADATA_KEY_VIDEO_HEIGHT);//高
+        String rotation = mmr.extractMetadata(android.media.MediaMetadataRetriever.METADATA_KEY_VIDEO_ROTATION);//旋转角度
+
+        Log.i(TAG, "width = " + width);
+        Log.i(TAG, "height = " + height);
+        Log.i(TAG, "rotation = " + rotation);
+
+        videoView.setAspectRatio(Integer.parseInt(width), Integer.parseInt(height), Integer.parseInt(rotation));
+//        mediaController.setWidthAndHeight(Integer.parseInt(width), Integer.parseInt(height), Integer.parseInt(rotation));
+
+
     }
 
 

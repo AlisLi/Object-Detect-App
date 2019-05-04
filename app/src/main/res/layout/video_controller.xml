@@ -2,7 +2,7 @@
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     >
 
     <!--视频加载进度条-->
@@ -49,40 +49,8 @@
                     android:textColor="#fff"
                     android:textSize="14sp"/>
             </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                >
-
-                <ImageView
-                    android:id="@+id/iv_share"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/share_video"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="5dp"
-                    android:text="分享"
-                    android:textColor="#fff"
-                    android:textSize="14sp"/>
-            </LinearLayout>
         </LinearLayout>
     </RelativeLayout>
-
-    <TextView
-        android:id="@+id/tv_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:gravity="center"
-        android:text="视频标题"
-        android:textColor="#fff"
-        android:textSize="14sp"/>
 
     <ImageView
         android:id="@+id/iv_play"
@@ -92,22 +60,6 @@
         android:src="@drawable/new_play_video"
         android:visibility="visible"
         android:onClick="play"/>
-
-    <TextView
-        android:id="@+id/tv_all_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|right"
-        android:layout_margin="10dp"
-        android:background="@drawable/tv_time_bg"
-        android:paddingBottom="5dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:paddingTop="5dp"
-        android:text="02:30"
-        android:textColor="#fff"
-        android:textSize="10sp"
-        android:visibility="visible"/>
 
     <LinearLayout
         android:id="@+id/ll_play_control"
@@ -144,7 +96,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
-            android:text="02:30"
             android:textColor="#fff"
             android:textSize="10sp"/>
 

@@ -1024,7 +1024,6 @@ id iv_masking
 id iv_play
 id iv_replay
 id iv_select
-id iv_share
 id left
 id line1
 id line3
@@ -1122,13 +1121,11 @@ id title_template
 id title_text
 id top
 id topPanel
-id tv_all_time
 id tv_confirm
 id tv_folder_name
 id tv_folder_size
 id tv_preview
 id tv_time
-id tv_title
 id tv_use_time
 id uniform
 id up

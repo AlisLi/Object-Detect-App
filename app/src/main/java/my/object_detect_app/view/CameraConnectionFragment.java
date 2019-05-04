@@ -281,9 +281,9 @@ public class CameraConnectionFragment extends Fragment {
                  */
                 final int orientation = getResources().getConfiguration().orientation;
                 if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                    textureView.setAspectRatio(previewSize.getWidth(), previewSize.getHeight());
+                    textureView.setAspectRatio(previewSize.getWidth(), previewSize.getHeight(), -1);
                 } else {
-                    textureView.setAspectRatio(previewSize.getHeight(), previewSize.getWidth());
+                    textureView.setAspectRatio(previewSize.getHeight(), previewSize.getWidth(), -1);
                 }
 
                 this.cameraId = cameraId;

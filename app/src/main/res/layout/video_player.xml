@@ -4,16 +4,18 @@
               android:layout_height="wrap_content">
 
     <!--视频播放界面-->
-    <TextureView
+    <my.object_detect_app.view.AutoFitTextureView
         android:id="@+id/video_view"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
         android:visibility="visible"/>
 
     <!--视频播放控制界面-->
     <my.object_detect_app.view.videoPlayer.VideoMediaController
         android:id="@+id/mediaController"
+        android:layout_centerInParent="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="match_parent"/>
 
 </RelativeLayout>

@@ -30,11 +30,8 @@ public class VideoMediaController extends RelativeLayout {
     private static final String TAG = "VideoMediaController";
     ProgressBar pbLoading;
     ImageView ivReplay;
-    ImageView ivShare;
     RelativeLayout rlPlayFinish;
-    TextView tvTitle;
     ImageView ivPlay;
-    TextView tvAllTime;
     TextView tvUseTime;
     SeekBar seekBar;
     TextView tvTime;
@@ -47,15 +44,16 @@ public class VideoMediaController extends RelativeLayout {
     private static final  int MSG_HIDE_TITLE = 0;
     private static final int MSG_UPDATE_TIME_PROGRESS = 1;
     private static final int  MSG_HIDE_CONTROLLER = 2;
+
+    private int ratioHeight = 0;
+    private int ratioWidth = 0;
+    private int rotation = 0;
     //消息处理器
     private Handler mHandler = new Handler(){
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
             switch (msg.what){
-                case MSG_HIDE_TITLE:
-                    tvTitle.setVisibility(View.GONE);
-                    break;
                 case MSG_UPDATE_TIME_PROGRESS:
                     updatePlayTimeAndProgress();
                     break;
@@ -92,11 +90,8 @@ public class VideoMediaController extends RelativeLayout {
 
         pbLoading = view.findViewById(R.id.pb_loading);
         ivReplay = view.findViewById(R.id.iv_replay);
-        ivShare = view.findViewById(R.id.iv_share);
         rlPlayFinish = view.findViewById(R.id.rl_play_finish);
-        tvTitle = view.findViewById(R.id.tv_title);
         ivPlay = view.findViewById(R.id.iv_play);
-        tvAllTime = view.findViewById(R.id.tv_all_time);
         tvUseTime = view.findViewById(R.id.tv_use_time);
         seekBar = view.findViewById(R.id.seekBar);
         tvTime = view.findViewById(R.id.tv_time);
@@ -162,7 +157,6 @@ public class VideoMediaController extends RelativeLayout {
     private void showOrHideVideoController() {
         if(llPlayControl.getVisibility() == View.GONE){
             //显示（标题、播放按钮、视频进度控制）
-            tvTitle.setVisibility(View.VISIBLE);
             ivPlay.setVisibility(View.VISIBLE);
             //加载动画
             Animation animation = AnimationUtils.loadAnimation(getContext(),R.anim.bottom_enter);
@@ -179,7 +173,6 @@ public class VideoMediaController extends RelativeLayout {
             llPlayControl.startAnimation(animation);
         }else{
             //隐藏（标题、播放按钮、视频进度控制）
-            tvTitle.setVisibility(View.GONE);
             ivPlay.setVisibility(View.GONE);
             //加载动画
             Animation animation = AnimationUtils.loadAnimation(getContext(),R.anim.bottom_exit);
@@ -238,9 +231,7 @@ public class VideoMediaController extends RelativeLayout {
 
     //显示视频播放完成的界面
     public void showPlayFinishView() {
-        tvTitle.setVisibility(View.VISIBLE);
         rlPlayFinish.setVisibility(View.VISIBLE);
-        tvAllTime.setVisibility(View.VISIBLE);
     }
 
     //简单的动画监听器（不需要其他的监听器去实现多余的方法）
@@ -264,10 +255,8 @@ public class VideoMediaController extends RelativeLayout {
 
     //初始化控件的显示状态
     public void initViewDisplay() {
-        tvTitle.setVisibility(View.VISIBLE);
         ivPlay.setVisibility(View.VISIBLE);
         ivPlay.setImageResource(R.drawable.new_play_video);
-        tvAllTime.setVisibility(View.VISIBLE);
         pbLoading.setVisibility(View.GONE);
         llPlayControl.setVisibility(View.GONE);
         rlPlayFinish.setVisibility(View.GONE);
@@ -280,7 +269,6 @@ public class VideoMediaController extends RelativeLayout {
         //隐藏播放完成界面
         rlPlayFinish.setVisibility(View.GONE);
         //隐藏时间
-        tvAllTime.setVisibility(View.GONE);
         tvUseTime.setText("00:00");
         //进度条
         seekBar.setProgress(0);
@@ -297,7 +285,6 @@ public class VideoMediaController extends RelativeLayout {
         if(isNewVideo){
             //播放
             ivPlay.setVisibility(View.GONE);
-            tvAllTime.setVisibility(View.GONE);
             pbLoading.setVisibility(View.VISIBLE);
             //视频播放界面也需要显示
             myVideoPlayer.setVideoViewVisiable(View.VISIBLE);
@@ -328,7 +315,6 @@ public class VideoMediaController extends RelativeLayout {
                 Log.i(TAG, "3");
                 //播放
                 ivPlay.setVisibility(View.GONE);
-                tvAllTime.setVisibility(View.GONE);
                 pbLoading.setVisibility(View.VISIBLE);
                 //视频播放界面也需要显示
                 myVideoPlayer.setVideoViewVisiable(View.VISIBLE);
@@ -357,4 +343,33 @@ public class VideoMediaController extends RelativeLayout {
     public boolean getIsNewVideo(){
         return this.isNewVideo;
     }
+
+
+//    public void setWidthAndHeight(final int ratioWidth, final int ratioHeight, final int rotation){
+//        this.ratioWidth = ratioWidth;
+//        this.ratioHeight = ratioHeight;
+//        this.rotation = rotation;
+//    }
+//
+//    @Override
+//    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+//        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+//        final int width = MeasureSpec.getSize(widthMeasureSpec);
+//        final int height = MeasureSpec.getSize(heightMeasureSpec);
+//        Log.i(TAG, "width = " + width);
+//        Log.i(TAG, "height = " + height);
+//
+//        if (0 == ratioWidth || 0 == ratioHeight) {
+//            setMeasuredDimension(width, height);
+//        }else {
+//            // 不论横着，竖着，width总是最大值
+//            if (rotation==0){
+//                // 横着拍摄
+//                setMeasuredDimension(width, width * ratioHeight / ratioWidth);
+//            }else if(rotation == 90){
+//                // 竖着拍摄
+//                setMeasuredDimension(width, width * ratioWidth / ratioHeight);
+//            }
+//        }
+//    }
 }
