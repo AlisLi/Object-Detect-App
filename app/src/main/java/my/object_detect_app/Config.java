@@ -19,9 +19,17 @@ public interface Config {
 //    String NET_URL = "http://192.168.43.58:8080/ObjectDetectService/";
 
     // dialog text
+
+    // 下载
     String DIALOG_DETECTING = "检测中。。。";
     String DIALOG_DOWNLOADING = "下载中。。。";
     String DIALOG_DOWNLOADED = "下载完成";
     String DIALOG_DOWNLOAD_ERROR = "下载失败";
+
+    // Message
+    String VIDEO_HAS_DETECTED = "视频已检测，请重新选择！";
+    String IMAGE_HAS_DETECTED = "图片已检测，请重新选择！";
+    String PLEASE_CHOICE_VIDEO = "请先选择视频！";
+    String PLEASE_CHOICE_IMAGE = "请先选择照片！";
 
 }

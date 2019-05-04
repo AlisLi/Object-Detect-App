@@ -1,15 +1,17 @@
 -- Merging decision tree log ---
 manifest
-ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:2:1-41:12
-INJECTED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:2:1-41:12
-INJECTED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:2:1-41:12
-INJECTED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:2:1-41:12
+ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:2:1-43:12
+INJECTED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:2:1-43:12
+INJECTED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:2:1-43:12
+INJECTED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:2:1-43:12
 MERGED from [androidx.recyclerview:recyclerview:1.0.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\recyclerview-1.0.0.aar\8d2f35b38e7a9efb9f8a036ea6d6a0b6\AndroidManifest.xml:17:1-22:12
 MERGED from [org.tensorflow:tensorflow-android:1.6.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\tensorflow-android-1.6.0.aar\3b2b6cb9c480aeb524b911551b50c74c\AndroidManifest.xml:2:1-8:12
 MERGED from [com.github.bumptech.glide:glide:4.5.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\jetified-glide-4.5.0.aar\d93d5703b91142e181f9d55a01aa3938\AndroidManifest.xml:2:1-13:12
 MERGED from [com.github.chrisbanes:PhotoView:2.3.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\PhotoView-2.3.0.aar\50a07f9d73b0588b40f8845210b961fe\AndroidManifest.xml:2:1-11:12
 MERGED from [com.zhy:okhttputils:2.6.2] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\okhttputils-2.6.2.aar\2a45099d4cc11a21e0b39e0e1de3a3d9\AndroidManifest.xml:2:1-11:12
 MERGED from [com.zyao89:zloading:1.2.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\jetified-zloading-1.2.0.aar\c29c63e934fdf459dba20eed911630fa\AndroidManifest.xml:2:1-17:12
+MERGED from [com.github.f0ris.sweetalert:library:1.5.1] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\library-1.5.1.aar\f026cae94727fde8ad17fc7d96d295e4\AndroidManifest.xml:2:1-13:12
+MERGED from [com.pnikosis:materialish-progress:1.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\materialish-progress-1.0.aar\c72c9d0bb1c0c322df299022abbf6e6d\AndroidManifest.xml:2:1-17:12
 MERGED from [androidx.appcompat:appcompat:1.0.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\appcompat-1.0.0.aar\38e84e7f3ee2dcf9908de1e0f7d97390\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.2] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\constraintlayout-1.1.2.aar\a5af9bc151536ca69817fae390324d62\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.fragment:fragment:1.0.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\fragment-1.0.0.aar\7fd098e419db549d5ca93584253ac340\AndroidManifest.xml:17:1-22:12
@@ -38,47 +40,49 @@ MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\Lizhiguo\.gra
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-core-2.0.0.aar\b9155246c7ad9e4b1e3f9816464ee53b\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\core-runtime-2.0.0.aar\c01ee7202d15fedf8b9a49eaafdad492\AndroidManifest.xml:17:1-22:12
 MERGED from [com.github.bumptech.glide:gifdecoder:4.5.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\jetified-gifdecoder-4.5.0.aar\22fd1c70e9aa7ea0324df168a21b49b8\AndroidManifest.xml:2:1-11:12
-INJECTED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:2:1-41:12
-INJECTED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:2:1-41:12
-INJECTED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:2:1-41:12
+INJECTED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:2:1-43:12
+INJECTED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:2:1-43:12
+INJECTED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:2:1-43:12
 	package
-		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:3:11-41
+		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:4:11-41
 		INJECTED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml
 		INJECTED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml
-		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:2:1-41:12
+		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:2:1-43:12
 		INJECTED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml
+	xmlns:tools
+		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:3:11-57
 	android:versionCode
 		INJECTED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml
-		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:2:1-41:12
+		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:2:1-43:12
 		INJECTED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:2:11-69
 uses-permission#android.permission.CAMERA
-ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:6:5-64
+ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:7:5-64
 	android:name
-		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:6:22-62
+		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:7:22-62
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:8:5-80
+ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:9:5-80
 	android:name
-		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:8:22-78
+		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:9:22-78
 uses-permission#android.permission.INTERNET
-ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:10:5-83
+ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:11:5-83
 	android:name
-		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:10:22-64
+		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:11:22-64
 uses-feature#android.hardware.camera
-ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:12:5-59
+ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:13:5-59
 	android:name
-		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:12:19-57
+		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:13:19-57
 uses-feature#android.hardware.camera.autofocus
-ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:13:5-69
+ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:14:5-69
 	android:name
-		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:13:19-67
+		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:14:19-67
 uses-sdk
-ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:15:5-16:40
-INJECTED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:15:5-16:40
-INJECTED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:15:5-16:40
+ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:16:5-17:40
+INJECTED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:16:5-17:40
+INJECTED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:16:5-17:40
 MERGED from [androidx.recyclerview:recyclerview:1.0.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\recyclerview-1.0.0.aar\8d2f35b38e7a9efb9f8a036ea6d6a0b6\AndroidManifest.xml:20:5-44
 MERGED from [androidx.recyclerview:recyclerview:1.0.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\recyclerview-1.0.0.aar\8d2f35b38e7a9efb9f8a036ea6d6a0b6\AndroidManifest.xml:20:5-44
 MERGED from [com.github.bumptech.glide:glide:4.5.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\jetified-glide-4.5.0.aar\d93d5703b91142e181f9d55a01aa3938\AndroidManifest.xml:7:5-9:41
@@ -89,6 +93,10 @@ MERGED from [com.zhy:okhttputils:2.6.2] C:\Users\Lizhiguo\.gradle\caches\transfo
 MERGED from [com.zhy:okhttputils:2.6.2] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\okhttputils-2.6.2.aar\2a45099d4cc11a21e0b39e0e1de3a3d9\AndroidManifest.xml:7:5-9:41
 MERGED from [com.zyao89:zloading:1.2.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\jetified-zloading-1.2.0.aar\c29c63e934fdf459dba20eed911630fa\AndroidManifest.xml:7:5-9:41
 MERGED from [com.zyao89:zloading:1.2.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\jetified-zloading-1.2.0.aar\c29c63e934fdf459dba20eed911630fa\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.f0ris.sweetalert:library:1.5.1] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\library-1.5.1.aar\f026cae94727fde8ad17fc7d96d295e4\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.f0ris.sweetalert:library:1.5.1] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\library-1.5.1.aar\f026cae94727fde8ad17fc7d96d295e4\AndroidManifest.xml:7:5-9:41
+MERGED from [com.pnikosis:materialish-progress:1.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\materialish-progress-1.0.aar\c72c9d0bb1c0c322df299022abbf6e6d\AndroidManifest.xml:7:5-9:41
+MERGED from [com.pnikosis:materialish-progress:1.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\materialish-progress-1.0.aar\c72c9d0bb1c0c322df299022abbf6e6d\AndroidManifest.xml:7:5-9:41
 MERGED from [androidx.appcompat:appcompat:1.0.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\appcompat-1.0.0.aar\38e84e7f3ee2dcf9908de1e0f7d97390\AndroidManifest.xml:20:5-44
 MERGED from [androidx.appcompat:appcompat:1.0.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\appcompat-1.0.0.aar\38e84e7f3ee2dcf9908de1e0f7d97390\AndroidManifest.xml:20:5-44
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.2] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\constraintlayout-1.1.2.aar\a5af9bc151536ca69817fae390324d62\AndroidManifest.xml:5:5-7:41
@@ -145,24 +153,28 @@ MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\Lizhiguo\.gradle\ca
 MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\core-runtime-2.0.0.aar\c01ee7202d15fedf8b9a49eaafdad492\AndroidManifest.xml:20:5-44
 MERGED from [com.github.bumptech.glide:gifdecoder:4.5.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\jetified-gifdecoder-4.5.0.aar\22fd1c70e9aa7ea0324df168a21b49b8\AndroidManifest.xml:5:5-7:41
 MERGED from [com.github.bumptech.glide:gifdecoder:4.5.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\jetified-gifdecoder-4.5.0.aar\22fd1c70e9aa7ea0324df168a21b49b8\AndroidManifest.xml:5:5-7:41
-INJECTED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:15:5-16:40
-INJECTED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:15:5-16:40
+INJECTED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:16:5-17:40
+INJECTED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:16:5-17:40
 	android:targetSdkVersion
-		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:16:9-38
+		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:17:9-38
 		INJECTED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml
 		INJECTED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
 		INJECTED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml
-		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:15:5-16:40
+		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:16:5-17:40
 		INJECTED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml
 application
-ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:18:5-39:19
+ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:19:5-41:19
 MERGED from [org.tensorflow:tensorflow-android:1.6.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\tensorflow-android-1.6.0.aar\3b2b6cb9c480aeb524b911551b50c74c\AndroidManifest.xml:5:5-6:19
 MERGED from [org.tensorflow:tensorflow-android:1.6.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\tensorflow-android-1.6.0.aar\3b2b6cb9c480aeb524b911551b50c74c\AndroidManifest.xml:5:5-6:19
 MERGED from [com.github.bumptech.glide:glide:4.5.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\jetified-glide-4.5.0.aar\d93d5703b91142e181f9d55a01aa3938\AndroidManifest.xml:11:5-20
 MERGED from [com.github.bumptech.glide:glide:4.5.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\jetified-glide-4.5.0.aar\d93d5703b91142e181f9d55a01aa3938\AndroidManifest.xml:11:5-20
 MERGED from [com.zyao89:zloading:1.2.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\jetified-zloading-1.2.0.aar\c29c63e934fdf459dba20eed911630fa\AndroidManifest.xml:11:5-15:19
 MERGED from [com.zyao89:zloading:1.2.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\jetified-zloading-1.2.0.aar\c29c63e934fdf459dba20eed911630fa\AndroidManifest.xml:11:5-15:19
+MERGED from [com.github.f0ris.sweetalert:library:1.5.1] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\library-1.5.1.aar\f026cae94727fde8ad17fc7d96d295e4\AndroidManifest.xml:11:5-20
+MERGED from [com.github.f0ris.sweetalert:library:1.5.1] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\library-1.5.1.aar\f026cae94727fde8ad17fc7d96d295e4\AndroidManifest.xml:11:5-20
+MERGED from [com.pnikosis:materialish-progress:1.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\materialish-progress-1.0.aar\c72c9d0bb1c0c322df299022abbf6e6d\AndroidManifest.xml:11:5-15:19
+MERGED from [com.pnikosis:materialish-progress:1.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\materialish-progress-1.0.aar\c72c9d0bb1c0c322df299022abbf6e6d\AndroidManifest.xml:11:5-15:19
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.2] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\constraintlayout-1.1.2.aar\a5af9bc151536ca69817fae390324d62\AndroidManifest.xml:9:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.2] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\constraintlayout-1.1.2.aar\a5af9bc151536ca69817fae390324d62\AndroidManifest.xml:9:5-20
 MERGED from [androidx.core:core:1.0.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\core-1.0.0.aar\2c5bc1a40ee4dd2479b32407a5a480b4\AndroidManifest.xml:22:5-89
@@ -174,54 +186,57 @@ MERGED from [com.github.bumptech.glide:gifdecoder:4.5.0] C:\Users\Lizhiguo\.grad
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.0.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\core-1.0.0.aar\2c5bc1a40ee4dd2479b32407a5a480b4\AndroidManifest.xml:22:18-86
 	android:supportsRtl
-		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:24:9-35
+		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:26:9-35
 	android:label
-		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:22:9-41
+		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:24:9-41
 	android:roundIcon
-		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:23:9-54
+		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:25:9-54
 	android:icon
-		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:21:9-43
+		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:23:9-43
+		REJECTED from [com.pnikosis:materialish-progress:1.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\materialish-progress-1.0.aar\c72c9d0bb1c0c322df299022abbf6e6d\AndroidManifest.xml:13:9-45
 	android:allowBackup
-		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:20:9-35
+		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:22:9-35
 	android:theme
-		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:25:9-40
+		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:27:9-40
 	android:networkSecurityConfig
-		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:19:9-69
+		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:21:9-69
+	tools:replace
+		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:20:9-37
 activity#my.object_detect_app.activities.MainActivity
-ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:26:9-32:20
+ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:28:9-34:20
 	android:name
-		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:26:19-58
+		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:28:19-58
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:27:13-31:29
+ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:29:13-33:29
 action#android.intent.action.MAIN
-ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:28:17-68
+ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:30:17-68
 	android:name
-		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:28:25-66
+		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:30:25-66
 category#android.intent.category.LAUNCHER
-ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:30:17-76
+ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:32:17-76
 	android:name
-		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:30:27-74
+		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:32:27-74
 activity#my.object_detect_app.activities.ClassifierActivity
-ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:33:9-76
+ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:35:9-76
 	android:name
-		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:33:19-64
+		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:35:19-64
 activity#my.object_detect_app.activities.ImageDetectActivity
-ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:34:9-77
-	android:name
-		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:34:19-65
-activity#my.object_detect_app.activities.ImageSelectorActivity
-ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:35:9-79
-	android:name
-		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:35:19-67
-activity#my.object_detect_app.activities.VideoDetectActivity
 ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:36:9-77
 	android:name
 		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:36:19-65
-activity#my.object_detect_app.activities.VideoSelectorActivity
+activity#my.object_detect_app.activities.ImageSelectorActivity
 ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:37:9-79
 	android:name
 		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:37:19-67
+activity#my.object_detect_app.activities.VideoDetectActivity
+ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:38:9-77
+	android:name
+		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:38:19-65
+activity#my.object_detect_app.activities.VideoSelectorActivity
+ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:39:9-79
+	android:name
+		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:39:19-67
 uses-permission#android.permission.READ_PHONE_STATE
-IMPLIED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:2:1-41:12 reason: tensorflow.contrib.android has a targetSdkVersion < 4
+IMPLIED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:2:1-43:12 reason: tensorflow.contrib.android has a targetSdkVersion < 4
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-IMPLIED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:2:1-41:12 reason: tensorflow.contrib.android requested WRITE_EXTERNAL_STORAGE
+IMPLIED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:2:1-43:12 reason: tensorflow.contrib.android requested WRITE_EXTERNAL_STORAGE

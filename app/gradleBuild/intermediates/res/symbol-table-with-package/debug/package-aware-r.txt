@@ -13,6 +13,12 @@ anim abc_tooltip_enter
 anim abc_tooltip_exit
 anim bottom_enter
 anim bottom_exit
+anim error_frame_in
+anim error_x_in
+anim modal_in
+anim modal_out
+anim success_bow_roate
+anim success_mask_layout
 attr actionBarDivider
 attr actionBarItemBackground
 attr actionBarPopupTheme
@@ -67,7 +73,10 @@ attr backgroundSplit
 attr backgroundStacked
 attr backgroundTint
 attr backgroundTintMode
+attr barColor
 attr barLength
+attr barSpinCycleTime
+attr barWidth
 attr barrierAllowsGoneWidgets
 attr barrierDirection
 attr borderlessButtonStyle
@@ -86,6 +95,7 @@ attr buttonTintMode
 attr chainUseRtl
 attr checkboxStyle
 attr checkedTextViewStyle
+attr circleRadius
 attr closeIcon
 attr closeItemLayout
 attr collapseContentDescription
@@ -139,6 +149,7 @@ attr fastScrollHorizontalThumbDrawable
 attr fastScrollHorizontalTrackDrawable
 attr fastScrollVerticalThumbDrawable
 attr fastScrollVerticalTrackDrawable
+attr fillRadius
 attr firstBaselineToTopHeight
 attr font
 attr fontFamily
@@ -151,6 +162,7 @@ attr fontProviderQuery
 attr fontStyle
 attr fontVariationSettings
 attr fontWeight
+attr fromDeg
 attr gapBetweenBars
 attr goIcon
 attr height
@@ -255,12 +267,15 @@ attr paddingTopNoTitle
 attr panelBackground
 attr panelMenuListTheme
 attr panelMenuListWidth
+attr pivotX
+attr pivotY
 attr popupMenuStyle
 attr popupTheme
 attr popupWindowStyle
 attr preserveIconSpacing
 attr progressBarPadding
 attr progressBarStyle
+attr progressIndeterminate
 attr queryBackground
 attr queryHint
 attr radioButtonStyle
@@ -268,6 +283,9 @@ attr ratingBarStyle
 attr ratingBarStyleIndicator
 attr ratingBarStyleSmall
 attr reverseLayout
+attr rimColor
+attr rimWidth
+attr rollType
 attr searchHintIcon
 attr searchIcon
 attr searchViewStyle
@@ -281,6 +299,7 @@ attr showTitle
 attr singleChoiceItemLayout
 attr spanCount
 attr spinBars
+attr spinSpeed
 attr spinnerDropDownItemStyle
 attr spinnerStyle
 attr splitTrack
@@ -295,6 +314,9 @@ attr subtitleTextAppearance
 attr subtitleTextColor
 attr subtitleTextStyle
 attr suggestionRowLayout
+attr sweet_alert_bg_drawable
+attr sweet_alert_content_text_color
+attr sweet_alert_title_text_color
 attr switchMinWidth
 attr switchPadding
 attr switchStyle
@@ -330,6 +352,7 @@ attr titleMargins
 attr titleTextAppearance
 attr titleTextColor
 attr titleTextStyle
+attr toDeg
 attr toolbarNavigationButtonStyle
 attr toolbarStyle
 attr tooltipForegroundColor
@@ -398,6 +421,8 @@ color bisque
 color black
 color blanchedalmond
 color blue
+color blue_btn_bg_color
+color blue_btn_bg_pressed_color
 color blueviolet
 color bright_foreground_disabled_material_dark
 color bright_foreground_disabled_material_light
@@ -409,6 +434,7 @@ color brown
 color burlywood
 color button_material_dark
 color button_material_light
+color button_text_color
 color cadetblue
 color chartreuse
 color chocolate
@@ -419,6 +445,7 @@ color coral
 color cornflowerblue
 color cornsilk
 color crimson
+color custom_float_bg
 color cyan
 color darkblue
 color darkcyan
@@ -449,7 +476,9 @@ color dimgrey
 color dodgerblue
 color error_color_material_dark
 color error_color_material_light
+color error_stroke_color
 color firebrick
+color float_transparent
 color floralwhite
 color foreground_material_dark
 color foreground_material_light
@@ -460,6 +489,8 @@ color ghostwhite
 color gold
 color goldenrod
 color gray
+color gray_btn_bg_color
+color gray_btn_bg_pressed_color
 color green
 color greenyellow
 color grey
@@ -494,11 +525,28 @@ color lime
 color limegreen
 color linen
 color magenta
+color main_blue_color
+color main_blue_stroke_color
+color main_cyan_color
+color main_cyan_stroke_color
+color main_disabled_color
+color main_disabled_stroke_color
+color main_green_color
+color main_green_stroke_color
+color main_orange_color
+color main_orange_light_color
+color main_orange_light_stroke_color
+color main_orange_stroke_color
 color maroon
+color material_blue_grey_80
 color material_blue_grey_800
+color material_blue_grey_90
 color material_blue_grey_900
+color material_blue_grey_95
 color material_blue_grey_950
+color material_deep_teal_20
 color material_deep_teal_200
+color material_deep_teal_50
 color material_deep_teal_500
 color material_grey_100
 color material_grey_300
@@ -516,6 +564,8 @@ color mediumslateblue
 color mediumspringgreen
 color mediumturquoise
 color mediumvioletred
+color message_color
+color message_color_dark
 color midnightblue
 color mintcream
 color mistyrose
@@ -550,6 +600,8 @@ color primary_text_disabled_material_dark
 color primary_text_disabled_material_light
 color purple
 color red
+color red_btn_bg_color
+color red_btn_bg_pressed_color
 color ripple_material_dark
 color ripple_material_light
 color rosybrown
@@ -572,6 +624,9 @@ color slategrey
 color snow
 color springgreen
 color steelblue
+color success_stroke_color
+color sweet_dialog_bg_color
+color sweet_dialog_bg_color_dark
 color switch_thumb_disabled_material_dark
 color switch_thumb_disabled_material_light
 color switch_thumb_material_dark
@@ -580,12 +635,17 @@ color switch_thumb_normal_material_dark
 color switch_thumb_normal_material_light
 color tan
 color teal
+color text_color
 color thistle
+color title_color
+color title_color_dark
 color tomato
 color tooltip_background_dark
 color tooltip_background_light
+color trans_success_stroke_color
 color turquoise
 color violet
+color warning_stroke_color
 color wheat
 color white
 color whitesmoke
@@ -668,6 +728,8 @@ dimen abc_text_size_subtitle_material_toolbar
 dimen abc_text_size_title_material
 dimen abc_text_size_title_material_toolbar
 dimen alert_width
+dimen buttons_stroke_width
+dimen common_circle_width
 dimen compat_button_inset_horizontal_material
 dimen compat_button_inset_vertical_material
 dimen compat_button_padding_horizontal_material
@@ -675,6 +737,7 @@ dimen compat_button_padding_vertical_material
 dimen compat_control_corner_material
 dimen compat_notification_large_icon_max_height
 dimen compat_notification_large_icon_max_width
+dimen custom_image_size
 dimen disabled_alpha_material_dark
 dimen disabled_alpha_material_light
 dimen fastscroll_default_thickness
@@ -705,6 +768,7 @@ dimen notification_small_icon_size_as_large
 dimen notification_subtext_size
 dimen notification_top_pad
 dimen notification_top_pad_large_text
+dimen progress_circle_radius
 dimen tooltip_corner_radius
 dimen tooltip_horizontal_padding
 dimen tooltip_margin
@@ -798,13 +862,20 @@ drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable biz_video_progress_thumb
+drawable blue_button_background
 drawable btn_back_selector
 drawable btn_foreground_selector
 drawable btn_green_shape
 drawable button_drawable
 drawable dialog_background
+drawable dialog_background_dark
 drawable enlarge_fullscreen
+drawable error_center_x
+drawable error_circle
 drawable folder_bg
+drawable gray_button_background
+drawable green_button_background
+drawable ic_launcher
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable new_pause_video
@@ -821,6 +892,7 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable red_button_background
 drawable replay_video
 drawable ripple_foreground
 drawable sb_bg
@@ -828,9 +900,13 @@ drawable sb_progress
 drawable sb_progress_drawable
 drawable sb_second
 drawable share_video
+drawable success_bow
+drawable success_circle
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 drawable tv_time_bg
+drawable warning_circle
+drawable warning_sigh
 id ALT
 id CTRL
 id ChartRectBuilder
@@ -891,6 +967,7 @@ id btn_local_choice_video
 id btn_local_detect
 id btn_preview
 id buttonPanel
+id cancel_button
 id center
 id center_horizontal
 id center_vertical
@@ -900,11 +977,15 @@ id chronometer
 id clip_horizontal
 id clip_vertical
 id collapseActionView
+id confirm_button
 id container
 id content
 id contentPanel
+id content_text
 id custom
 id customPanel
+id custom_image
+id custom_view_container
 id decor_content_parent
 id default_activity_button
 id dimensions
@@ -912,6 +993,8 @@ id direct
 id disableHome
 id edit_query
 id end
+id error_frame
+id error_x
 id expand_activities_button
 id expanded_menu
 id fill
@@ -948,11 +1031,15 @@ id line3
 id listMode
 id list_item
 id ll_play_control
+id loading
+id mask_left
+id mask_right
 id masking
 id mediaController
 id message
 id middle
 id multiply
+id neutral_button
 id never
 id none
 id normal
@@ -967,7 +1054,9 @@ id parentPanel
 id pb_loading
 id percent
 id photo_container
+id progressWheel
 id progress_circular
+id progress_dialog
 id progress_horizontal
 id radio
 id rel_detect_result
@@ -1015,6 +1104,8 @@ id standard
 id start
 id submenuarrow
 id submit_area
+id success_frame
+id success_tick
 id tabMode
 id tag_transition_group
 id tag_unhandled_key_event_manager
@@ -1028,6 +1119,7 @@ id time
 id title
 id titleDividerNoCustom
 id title_template
+id title_text
 id top
 id topPanel
 id tv_all_time
@@ -1044,9 +1136,13 @@ id useLogo
 id video_container
 id video_player
 id video_view
+id warning_frame
 id withText
 id wrap
 id wrap_content
+id x
+id y
+id z
 id z_custom_text_view
 id z_loading
 id z_loading_view
@@ -1092,6 +1188,7 @@ layout activity_video_detect
 layout adapter_camera
 layout adapter_folder
 layout adapter_images_item
+layout alert_dialog
 layout camera_connection_fragment
 layout image_fragment
 layout notification_action
@@ -1117,6 +1214,7 @@ mipmap icon_image_select
 mipmap icon_image_un_select
 mipmap text_indicator
 mipmap wifi
+string LOADING
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description
@@ -1160,6 +1258,9 @@ string app_name
 string camera_error
 string confirm
 string description_info
+string dialog_cancel
+string dialog_default_title
+string dialog_ok
 string image
 string preview
 string request_permission
@@ -1526,6 +1627,9 @@ style Widget_Compat_NotificationActionContainer
 style Widget_Compat_NotificationActionText
 style Widget_Support_CoordinatorLayout
 style alert_dialog
+style alert_dialog_dark
+style alert_dialog_light
+style dialog_blue_button
 styleable ActionBar background backgroundSplit backgroundStacked contentInsetEnd contentInsetEndWithActions contentInsetLeft contentInsetRight contentInsetStart contentInsetStartWithNavigation customNavigationLayout displayOptions divider elevation height hideOnContentScroll homeAsUpIndicator homeLayout icon indeterminateProgressStyle itemPadding logo navigationMode popupTheme progressBarPadding progressBarStyle subtitle subtitleTextStyle title titleTextStyle
 styleable ActionBarLayout android_layout_gravity
 styleable ActionMenuItemView android_minWidth
@@ -1563,8 +1667,10 @@ styleable MenuItem android_icon android_enabled android_id android_checked andro
 styleable MenuView android_windowAnimationStyle android_itemTextAppearance android_horizontalDivider android_verticalDivider android_headerBackground android_itemBackground android_itemIconDisabledAlpha preserveIconSpacing subMenuArrow
 styleable PopupWindow android_popupBackground android_popupAnimationStyle overlapAnchor
 styleable PopupWindowBackgroundState state_above_anchor
+styleable ProgressWheel barColor barSpinCycleTime barWidth circleRadius fillRadius progressIndeterminate rimColor rimWidth spinSpeed
 styleable RecycleListView paddingBottomNoButtons paddingTopNoTitle
 styleable RecyclerView android_orientation android_descendantFocusability fastScrollEnabled fastScrollHorizontalThumbDrawable fastScrollHorizontalTrackDrawable fastScrollVerticalThumbDrawable fastScrollVerticalTrackDrawable layoutManager reverseLayout spanCount stackFromEnd
+styleable Rotate3dAnimation fromDeg pivotX pivotY rollType toDeg
 styleable SearchView android_focusable android_maxWidth android_inputType android_imeOptions closeIcon commitIcon defaultQueryHint goIcon iconifiedByDefault layout queryBackground queryHint searchHintIcon searchIcon submitBackground suggestionRowLayout voiceIcon
 styleable Spinner android_entries android_popupBackground android_prompt android_dropDownWidth popupTheme
 styleable StateListDrawable android_dither android_visible android_variablePadding android_constantSize android_enterFadeDuration android_exitFadeDuration

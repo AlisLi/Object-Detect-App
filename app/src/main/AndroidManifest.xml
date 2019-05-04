@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
           package="my.object_detect_app">
 
     <!-- 相机权限 -->
@@ -16,6 +17,7 @@
         android:targetSdkVersion="23"/>
 
     <application
+        tools:replace="android:icon"
         android:networkSecurityConfig="@xml/network_security_config"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"

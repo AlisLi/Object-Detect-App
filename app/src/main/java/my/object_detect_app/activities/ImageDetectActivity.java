@@ -26,6 +26,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import my.object_detect_app.R;
 import my.object_detect_app.TensorFlowImageRecognizer;
 import my.object_detect_app.entity.Recognition;
+import my.object_detect_app.utils.DialogUtils;
 import my.object_detect_app.utils.ImageUtils;
 import my.object_detect_app.utils.LoadingUtils;
 import my.object_detect_app.utils.PathUtils;
@@ -39,9 +40,11 @@ import static my.object_detect_app.Config.DIALOG_DETECTING;
 import static my.object_detect_app.Config.DIALOG_DOWNLOADED;
 import static my.object_detect_app.Config.DIALOG_DOWNLOADING;
 import static my.object_detect_app.Config.DIALOG_DOWNLOAD_ERROR;
+import static my.object_detect_app.Config.IMAGE_HAS_DETECTED;
 import static my.object_detect_app.Config.INPUT_SIZE;
 import static my.object_detect_app.Config.LOGGING_TAG;
 import static my.object_detect_app.Config.NET_URL;
+import static my.object_detect_app.Config.PLEASE_CHOICE_IMAGE;
 import static my.object_detect_app.utils.imageSelect.ImageUtils.getLocalBitmap;
 
 /**
@@ -50,8 +53,6 @@ import static my.object_detect_app.utils.imageSelect.ImageUtils.getLocalBitmap;
 public class ImageDetectActivity extends AppCompatActivity {
     private static final String TAG = "ImageDetectActivity";
     private static final int LOCAL_IMAGE_CHOICE_REQUEST_CODE = 0x0100;
-
-    private static boolean FLAG_IS_LOCAL_IMAGE = true;
 
     private Bitmap imageBitmap;     //原图像的bitmap
     private int imageWidth;         //原图像的宽
@@ -68,6 +69,8 @@ public class ImageDetectActivity extends AppCompatActivity {
     private ZLoadingDialog mDialog;
 
     private OverlayView overlayView;
+
+    private boolean hasDetected;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -89,8 +92,19 @@ public class ImageDetectActivity extends AppCompatActivity {
     }
 
     public void netDetect(View view){
-        LoadingUtils.duringDialog(mDialog, DIALOG_DETECTING, Z_TYPE.SNAKE_CIRCLE);
+        if(hasDetected){
+            // 提示已经处理过
+            DialogUtils.basicMessage(this, IMAGE_HAS_DETECTED);
+            return;
+        }
 
+        if (imagePaths == null || imagePaths.size() <= 0){
+            // 图片未读取
+            DialogUtils.basicMessage(this, PLEASE_CHOICE_IMAGE);
+            return;
+        }
+
+        LoadingUtils.duringDialog(mDialog, DIALOG_DETECTING, Z_TYPE.SNAKE_CIRCLE);
 
         File file = new File(imagePaths.get(0));
         Log.i(TAG, "netDetect()");
@@ -165,6 +179,7 @@ public class ImageDetectActivity extends AppCompatActivity {
                                 LoadingUtils.cancelSecondDialog(mDialog, 1000);
                             }
                         });
+                        hasDetected = true;
 
                         // 将图片显示为结果图片
                         setImageFragment(resultImagePath);
@@ -208,37 +223,44 @@ public class ImageDetectActivity extends AppCompatActivity {
         startActivityForResult(intent, LOCAL_IMAGE_CHOICE_REQUEST_CODE);
     }
 
-    // 生成检测结果
+    // 生成本地检测结果
     public void getLocalDetectResult(View view){
-        if(FLAG_IS_LOCAL_IMAGE){
-            /**
-             * 本地检测照片
-              */
-
-            // 处理图像
-            cropBitmap();
-
-            //
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    final long startTime = SystemClock.uptimeMillis();
-                    final List<Recognition> results = recognizer.recognizeImage(croppedBitmap);
-                    Log.i(LOGGING_TAG, "detect image size : " + results.size());
-                    lastProcessingTimeMs = SystemClock.uptimeMillis() - startTime;
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            overlayView.setResults(results);
-                            requestRender();
-                        }
-                    });
-                }
-            }).start();
-
-        }else{
-            // 检测视频
+        if(hasDetected){
+            // 提示已经处理过
+            DialogUtils.basicMessage(this, IMAGE_HAS_DETECTED);
+            return;
         }
+
+        if (imagePaths == null || imagePaths.size() <= 0){
+            // 图片未读取
+            DialogUtils.basicMessage(this, PLEASE_CHOICE_IMAGE);
+            return;
+        }
+
+        hasDetected = true;
+
+        //本地检测照片
+
+        // 处理图像
+        cropBitmap();
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                final long startTime = SystemClock.uptimeMillis();
+                final List<Recognition> results = recognizer.recognizeImage(croppedBitmap);
+                Log.i(LOGGING_TAG, "detect image size : " + results.size());
+                lastProcessingTimeMs = SystemClock.uptimeMillis() - startTime;
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        overlayView.setResults(results);
+                        requestRender();
+                    }
+                });
+            }
+        }).start();
+
     }
 
     public void requestRender() {
@@ -269,6 +291,8 @@ public class ImageDetectActivity extends AppCompatActivity {
             // 选择图片
             case LOCAL_IMAGE_CHOICE_REQUEST_CODE:
                 if(resultCode == RESULT_OK){
+                    hasDetected = false;
+
                     // 获取传回的图片路径
                     imagePaths = data.getStringArrayListExtra(ImageSelector.SELECT_RESULT);
 
@@ -277,9 +301,6 @@ public class ImageDetectActivity extends AppCompatActivity {
 
                     //获取图片的Bitmap
                     imageBitmap = getLocalBitmap(imagePaths.get(0));
-
-                    //更改Flag
-                    FLAG_IS_LOCAL_IMAGE = true;
 
                 }
                 break;

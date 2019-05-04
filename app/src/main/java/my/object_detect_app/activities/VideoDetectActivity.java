@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import my.object_detect_app.R;
+import my.object_detect_app.utils.DialogUtils;
 import my.object_detect_app.utils.LoadingUtils;
 import my.object_detect_app.utils.MediaHelper;
 import my.object_detect_app.utils.PathUtils;
@@ -35,6 +36,8 @@ import static my.object_detect_app.Config.DIALOG_DOWNLOADED;
 import static my.object_detect_app.Config.DIALOG_DOWNLOADING;
 import static my.object_detect_app.Config.DIALOG_DOWNLOAD_ERROR;
 import static my.object_detect_app.Config.NET_URL;
+import static my.object_detect_app.Config.PLEASE_CHOICE_VIDEO;
+import static my.object_detect_app.Config.VIDEO_HAS_DETECTED;
 
 /**
  * User: Lizhiguo
@@ -45,13 +48,13 @@ public class VideoDetectActivity extends AppCompatActivity {
 
     private ArrayList<String> videoPaths;
 
-    private ArrayList<Bitmap> videoBitmaps;
-
     private VideoPlayer mVideoPlayer;
 
     private ZLoadingDialog mDialog;
 
-    @Override
+    private boolean hasDetected;
+
+   @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);   //屏幕保持不暗不关闭
@@ -87,6 +90,18 @@ public class VideoDetectActivity extends AppCompatActivity {
         // 检测时，如果视频播放，则暂停
         if(MediaHelper.getInstance().isPlaying()){
             mVideoPlayer.mediaController.play();
+        }
+
+        if(hasDetected){
+            // 提示已经处理过
+            DialogUtils.basicMessage(this, VIDEO_HAS_DETECTED);
+            return;
+        }
+
+        if (videoPaths == null || videoPaths.size() <= 0){
+            // 视频未读取
+            DialogUtils.basicMessage(this, PLEASE_CHOICE_VIDEO);
+            return;
         }
 
         LoadingUtils.duringDialog(mDialog, DIALOG_DETECTING, Z_TYPE.SNAKE_CIRCLE);
@@ -162,6 +177,9 @@ public class VideoDetectActivity extends AppCompatActivity {
                             }
                         });
 
+                        // 设置视频已经处理过
+                        hasDetected = true;
+
                         //将视频显示为处理过后的视频
                         // 设置是一个新的视频
                         mVideoPlayer.mediaController.setIsNewVideo(true);
@@ -203,6 +221,9 @@ public class VideoDetectActivity extends AppCompatActivity {
         switch (requestCode){
             case LOCAL_VIDEO_CHOICE_REQUEST_CODE:
                 if(resultCode == RESULT_OK){
+                    // 设置视频未处理
+                    hasDetected = false;
+
                     // 获取传回的视频路径
                     videoPaths = data.getStringArrayListExtra(ImageSelector.SELECT_RESULT);
 

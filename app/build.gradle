@@ -74,4 +74,6 @@ dependencies {
     compile 'com.zhy:okhttputils:2.6.2'
     //Loading View
     compile 'com.zyao89:zloading:1.2.0'
+    //Dialog
+    implementation 'com.github.f0ris.sweetalert:library:1.5.1'
 }
