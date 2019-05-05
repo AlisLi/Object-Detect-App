@@ -54,6 +54,8 @@ public class VideoDetectActivity extends AppCompatActivity {
 
     private boolean hasDetected;
 
+    private int rotation;
+
    @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -113,6 +115,7 @@ public class VideoDetectActivity extends AppCompatActivity {
                 .addFile("file", file.getName(), file)//
                 .addParams("algorithmName", "faster-rcnn")
                 .addParams("net", "zf")
+                .addParams("rotation", rotation + "")
                 .url(NET_URL + "algorithm/upload")
                 .build()//
                 .connTimeOut(200000000)
@@ -174,21 +177,21 @@ public class VideoDetectActivity extends AppCompatActivity {
                                 mDialog.cancel();
                                 LoadingUtils.duringDialog(mDialog, DIALOG_DOWNLOADED, Z_TYPE.LEAF_ROTATE);
                                 LoadingUtils.cancelSecondDialog(mDialog, 1000);
+
+                                // 设置视频已经处理过
+                                hasDetected = true;
+
+                                //将视频显示为处理过后的视频
+                                // 设置是一个新的视频
+                                mVideoPlayer.mediaController.setIsNewVideo(true);
+                                // 获取视频路径
+                                mVideoPlayer.setVideoPath(resultVideoPath);
+                                // 设置视频操作可见
+                                mVideoPlayer.setVisibility(View.VISIBLE);
+                                //设置为初始化状态
+                                mVideoPlayer.initViewDisplay();
                             }
                         });
-
-                        // 设置视频已经处理过
-                        hasDetected = true;
-
-                        //将视频显示为处理过后的视频
-                        // 设置是一个新的视频
-                        mVideoPlayer.mediaController.setIsNewVideo(true);
-                        // 获取视频路径
-                        mVideoPlayer.setVideoPath(resultVideoPath);
-                        // 设置视频操作可见
-                        mVideoPlayer.setVisibility(View.VISIBLE);
-                        //设置为初始化状态
-                        mVideoPlayer.initViewDisplay();
 
                         return null;
                     }
@@ -236,6 +239,7 @@ public class VideoDetectActivity extends AppCompatActivity {
                     //设置为初始化状态
                     mVideoPlayer.initViewDisplay();
 
+                    rotation = mVideoPlayer.getTheRotation();
 
                 }
                 break;

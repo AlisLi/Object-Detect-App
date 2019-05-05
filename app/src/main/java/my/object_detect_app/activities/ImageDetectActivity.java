@@ -113,6 +113,7 @@ public class ImageDetectActivity extends AppCompatActivity {
                 .addFile("file", file.getName(), file)//
                 .addParams("algorithmName", "faster-rcnn")
                 .addParams("net", "zf")
+                .addParams("rotation", "0")
                 .url(NET_URL + "algorithm/upload")
                 .build()//
                 .connTimeOut(200000000)

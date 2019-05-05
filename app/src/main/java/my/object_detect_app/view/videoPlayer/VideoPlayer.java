@@ -29,6 +29,10 @@ public class VideoPlayer extends RelativeLayout {
 
     public boolean hasPlay;//是否播放了
 
+    private int width;
+    private int height;
+    private int rotation;
+
     public VideoPlayer(Context context) {
         this(context, null);
     }
@@ -171,18 +175,21 @@ public class VideoPlayer extends RelativeLayout {
 
         android.media.MediaMetadataRetriever mmr = new android.media.MediaMetadataRetriever();
         mmr.setDataSource(this.videoPath);
-        String width = mmr.extractMetadata(android.media.MediaMetadataRetriever.METADATA_KEY_VIDEO_WIDTH);//宽
-        String height = mmr.extractMetadata(android.media.MediaMetadataRetriever.METADATA_KEY_VIDEO_HEIGHT);//高
-        String rotation = mmr.extractMetadata(android.media.MediaMetadataRetriever.METADATA_KEY_VIDEO_ROTATION);//旋转角度
+        width = Integer.parseInt(mmr.extractMetadata(android.media.MediaMetadataRetriever.METADATA_KEY_VIDEO_WIDTH));//宽
+        height = Integer.parseInt(mmr.extractMetadata(android.media.MediaMetadataRetriever.METADATA_KEY_VIDEO_HEIGHT));//高
+        rotation = Integer.parseInt(mmr.extractMetadata(android.media.MediaMetadataRetriever.METADATA_KEY_VIDEO_ROTATION));//旋转角度
 
         Log.i(TAG, "width = " + width);
         Log.i(TAG, "height = " + height);
         Log.i(TAG, "rotation = " + rotation);
 
-        videoView.setAspectRatio(Integer.parseInt(width), Integer.parseInt(height), Integer.parseInt(rotation));
+        videoView.setAspectRatio(width, height, rotation);
 //        mediaController.setWidthAndHeight(Integer.parseInt(width), Integer.parseInt(height), Integer.parseInt(rotation));
 
+    }
 
+    public int getTheRotation(){
+        return rotation;
     }
 
 

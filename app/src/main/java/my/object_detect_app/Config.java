@@ -15,7 +15,8 @@ public interface Config {
 
     String LOGGING_TAG = "Object-Detect-App";
 
-    String NET_URL = "http://10.10.97.16:8080/ObjectDetectService/";
+//    String NET_URL = "http://10.10.97.16:8080/ObjectDetectService/";
+    String NET_URL = "http://192.168.137.1:8080/ObjectDetectService/";
 //    String NET_URL = "http://192.168.43.58:8080/ObjectDetectService/";
 
     // dialog text
