@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 按压时 -->
+    <item android:color="@color/mainBtnClicked" android:state_pressed="true">
+        <shape android:shape="oval">
+            <size
+                android:width="90dp"
+                android:height="90dp"/>
+
+            <solid android:color="@color/mainBtnClicked"></solid>
+        </shape>
+    </item>
+    <!-- 被选中时 -->
+    <item android:color="@color/mainBtnClicked" android:state_selected="true">
+        <shape android:shape="oval">
+            <size
+                android:width="90dp"
+                android:height="90dp"/>
+
+            <solid android:color="@color/mainBtnClicked"></solid>
+        </shape>
+    </item>
+    <!-- 默认时 -->
+    <item android:color="@android:color/white">
+        <shape android:shape="oval">
+            <size
+                android:width="90dp"
+                android:height="90dp"/>
+
+            <solid android:color="@color/white"></solid>
+        </shape>
+    </item>
+</selector>

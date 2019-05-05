@@ -33,16 +33,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void toNetPhoto(View view){
+    public void setting(View view){
 
     }
 
-    public void toNetVideo(View view){
-
-    }
-
-    public void toDetectResult(View view){
-
-    }
 
 }

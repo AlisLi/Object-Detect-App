@@ -197,7 +197,7 @@ MERGED from [com.github.bumptech.glide:gifdecoder:4.5.0] C:\Users\Lizhiguo\.grad
 	android:allowBackup
 		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:22:9-35
 	android:theme
-		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:27:9-40
+		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:27:9-65
 	android:networkSecurityConfig
 		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:21:9-69
 	tools:replace

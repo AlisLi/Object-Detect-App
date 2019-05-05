@@ -1,184 +1,197 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
-    tools:context=".activities.MainActivity"
-    android:orientation="vertical"
-    android:paddingBottom="20dp"
-    android:paddingLeft="10dp"
-    android:paddingRight="10dp"
-    android:paddingTop="20dp">
-
-    <LinearLayout
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/mainBackground">
+    
+    <include layout="@layout/toolbar"></include>
+    
+    <ImageView
+        android:id="@+id/iv_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/LinearMain"
-        android:layout_weight="1">
+        android:adjustViewBounds="true"
+        android:src="@mipmap/main_top"
+        android:layout_below="@id/toolbar"/>
 
-        <!--<Button
-            android:foreground="@drawable/ripple_foreground"
-            android:background="@drawable/button_drawable"
-            style="@style/ButtonMain"
-            android:id="@+id/btn_real_time_video"
-            android:text="@string/txt_btn_real_time_video"/>
+    <my.object_detect_app.view.CircleImageView
+        android:id="@+id/civ_main"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="-50dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/main_circle"
+        android:layout_below="@id/iv_main"/>
 
-        <Button
-            android:foreground="@drawable/ripple_foreground"
-            android:background="@drawable/button_drawable"
-            style="@style/ButtonMain"
-            android:id="@+id/btn_local_photo"
-            android:text="@string/txt_btn_local_photo"/>-->
+    <TextView
+        android:id="@+id/txt_main_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/civ_main"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/mainText"
+        android:textSize="18dp"
+        android:text="@string/txt_main_content"/>
 
-        <RelativeLayout
-            style="@style/RelativeInnerMain"
-            android:background="@drawable/button_drawable"
-            android:foreground="@drawable/ripple_foreground"
-            android:id="@+id/rel_real_time_video"
-            android:onClick="toRealTimeVideo">
+    <LinearLayout
+        android:id="@+id/ll_main_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_main_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="80dp"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/btn_main_circle_selector"
+                android:onClick="toRealTimeVideo">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/btn_main_circle_icon_real_time_selector"/>
+
+
+            </RelativeLayout>
 
             <TextView
-                style="@style/TextMidInnerMain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/mainText"
+                android:layout_marginTop="5dp"
+                android:textSize="16dp"
                 android:text="@string/txt_btn_real_time_video"/>
 
-            <ImageView
-                style="@style/ImageEndInnerMain"
-                android:src="@mipmap/wifi"/>
 
-        </RelativeLayout>
+        </LinearLayout>
 
-        <RelativeLayout
-            style="@style/RelativeInnerMain"
-            android:background="@drawable/button_drawable"
-            android:foreground="@drawable/ripple_foreground"
-            android:id="@+id/rel_local_photo"
-            android:onClick="toDetectPhoto">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/btn_main_circle_selector"
+                android:onClick="toDetectPhoto">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/btn_main_circle_icon_image_selector"/>
+
+            </RelativeLayout>
 
             <TextView
-                style="@style/TextMidInnerMain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/mainText"
+                android:layout_marginTop="5dp"
+                android:textSize="16dp"
                 android:text="@string/txt_btn_photo_detect"/>
 
-            <ImageView
-                style="@style/ImageEndInnerMain"
-                android:src="@mipmap/wifi"/>
-
-        </RelativeLayout>
+        </LinearLayout>
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/LinearMain"
-        android:layout_weight="1">
+        android:layout_below="@id/ll_main_bottom"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:orientation="horizontal">
 
-        <!--<Button
-            android:foreground="@drawable/ripple_foreground"
-            android:background="@drawable/button_drawable"
-            style="@style/ButtonMain"
-            android:id="@+id/btn_local_video"
-            android:text="@string/txt_btn_local_video"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="80dp"
+            android:orientation="vertical">
 
-        <Button
-            android:foreground="@drawable/ripple_foreground"
-            android:background="@drawable/button_drawable"
-            style="@style/ButtonMain"
-            android:id="@+id/btn_net_photo"
-            android:text="@string/txt_btn_net_photo"/>-->
-        <RelativeLayout
-            style="@style/RelativeInnerMain"
-            android:background="@drawable/button_drawable"
-            android:foreground="@drawable/ripple_foreground"
-            android:id="@+id/rel_local_video"
-            android:onClick="toDetectVideo">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/btn_main_circle_selector"
+                android:onClick="toDetectVideo">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/btn_main_circle_icon_video_selector"/>
+
+            </RelativeLayout>
 
             <TextView
-                style="@style/TextMidInnerMain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/mainText"
+                android:layout_marginTop="5dp"
+                android:textSize="16dp"
                 android:text="@string/txt_btn_video_detect"/>
 
-            <ImageView
-                style="@style/ImageEndInnerMain"
-                android:src="@mipmap/wifi"/>
 
-        </RelativeLayout>
+        </LinearLayout>
 
-        <RelativeLayout
-            style="@style/RelativeInnerMain"
-            android:background="@drawable/button_drawable"
-            android:foreground="@drawable/ripple_foreground"
-            android:id="@+id/rel_net_photo"
-            android:onClick="toNetPhoto">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <TextView
-                style="@style/TextMidInnerMain"
-                android:text="@string/txt_btn_net_photo"/>
 
-            <ImageView
-                style="@style/ImageEndInnerMain"
-                android:src="@mipmap/wifi"/>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/btn_main_circle_selector"
+                android:onClick="setting">
 
-        </RelativeLayout>
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/btn_main_circle_icon_setting_selector"/>
 
-    </LinearLayout>
-
-    <LinearLayout
-        style="@style/LinearMain"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
-
-        <!--<Button
-            android:id="@+id/btn_net_video"
-            style="@style/ButtonMain"
-            android:background="@drawable/button_drawable"
-            android:foreground="@drawable/ripple_foreground"
-            android:text="@string/txt_btn_net_video"/>-->
-
-        <!--<Button
-            android:foreground="@drawable/ripple_foreground"
-            android:background="@drawable/button_drawable"
-            style="@style/ButtonMain"
-            android:id="@+id/btn_detect_result"
-            android:text="@string/txt_btn_detect_result"/>-->
-        <RelativeLayout
-            style="@style/RelativeInnerMain"
-            android:background="@drawable/button_drawable"
-            android:foreground="@drawable/ripple_foreground"
-            android:id="@+id/rel_net_video"
-            android:onClick="toNetVideo">
+            </RelativeLayout>
 
             <TextView
-                style="@style/TextMidInnerMain"
-                android:text="@string/txt_btn_net_video"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/mainText"
+                android:layout_marginTop="5dp"
+                android:textSize="16dp"
+                android:text="@string/txt_btn_setting"/>
 
-        <ImageView
-            style="@style/ImageEndInnerMain"
-            android:src="@mipmap/wifi"/>
-
-        </RelativeLayout>
-
-
-        <RelativeLayout
-            style="@style/RelativeInnerMain"
-            android:background="@drawable/button_drawable"
-            android:foreground="@drawable/ripple_foreground"
-            android:id="@+id/rel_detect_result"
-            android:onClick="toDetectResult">
-
-            <TextView
-                style="@style/TextMidInnerMain"
-                android:text="@string/txt_btn_detect_result"/>
-
-            <ImageView
-                style="@style/ImageEndInnerMain"
-                android:src="@mipmap/wifi"/>
-
-        </RelativeLayout>
+        </LinearLayout>
 
     </LinearLayout>
 
 
 
-</LinearLayout>
+
+
+
+</RelativeLayout>

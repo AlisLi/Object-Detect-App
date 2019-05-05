@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 当前窗口失去焦点时 -->
+    <item android:drawable="@drawable/icon_image_dark" android:state_window_focused="false">
+    </item>
+    <!-- 按压时 -->
+    <item android:drawable="@drawable/icon_image_light" android:state_pressed="true">
+    </item>
+    <!-- 被选中时 -->
+    <item android:drawable="@drawable/icon_image_light" android:state_selected="true">
+    </item>
+    <!-- 默认时 -->
+    <item android:drawable="@drawable/icon_image_dark">
+    </item>
+</selector>

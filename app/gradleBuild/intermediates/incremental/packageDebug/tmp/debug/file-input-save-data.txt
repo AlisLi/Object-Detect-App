@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sun Apr 14 16:52:03 CST 2019
+#Sun May 05 21:51:09 CST 2019
 4.path=lib/arm64-v8a/libtensorflow_inference.so
 8.set=ASSET
 6.path=classes.dex
