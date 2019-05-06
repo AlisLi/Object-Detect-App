@@ -104,11 +104,7 @@ public class OverlayView extends View {
 
         float right = Math.min(rect.getRight() * sizeMultiplier, this.getWidth() - padding);
         float bottom = Math.min(rect.getBottom() * sizeMultiplier + offsetY, this.getHeight() - padding);
-        if (rotation == 0 || rotation == 360){
-            return new RectF(left, top, right, bottom);
-        }else if(rotation == 90 || rotation == 270){
-            return new RectF(left, top, right, bottom);
-        }
+
         return new RectF(left, top, right, bottom);
     }
 
@@ -122,24 +118,5 @@ public class OverlayView extends View {
         this.rotation = rotation;
     }
 
-    /**
-     * 因为预览的长宽和预测图象的长宽不一致，所以要进行相应的微调
-     * @param rect
-     * @return
-     */
-//    private RectF reCalcSize(BoxPosition rect) {
-//        int padding = 5;
-//        float overlayViewHeight = this.getHeight() - resultsViewHeight;
-//        float widthScale = (float) this.getWidth() / (float) Config.INPUT_SIZE;
-//        float heightScale = overlayViewHeight / (float) Config.INPUT_SIZE;
-//
-//        float left = Math.max(padding,widthScale * rect.getLeft());
-//        float top = Math.max(padding, heightScale * rect.getTop() + resultsViewHeight);
-//
-//        float right = Math.min(rect.getRight() * widthScale, this.getWidth() - padding);
-//        float bottom = Math.min(rect.getBottom() * heightScale, this.getHeight() - padding);
-//
-//        return new RectF(left, top, right, bottom);
-//    }
 
 }
