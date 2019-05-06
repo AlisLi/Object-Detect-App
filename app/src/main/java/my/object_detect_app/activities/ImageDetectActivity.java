@@ -45,6 +45,8 @@ import static my.object_detect_app.Config.INPUT_SIZE;
 import static my.object_detect_app.Config.LOGGING_TAG;
 import static my.object_detect_app.Config.NET_URL;
 import static my.object_detect_app.Config.PLEASE_CHOICE_IMAGE;
+import static my.object_detect_app.Constant.ALGORITHM;
+import static my.object_detect_app.Constant.NET;
 import static my.object_detect_app.utils.imageSelect.ImageUtils.getLocalBitmap;
 
 /**
@@ -111,8 +113,8 @@ public class ImageDetectActivity extends AppCompatActivity {
 
         OkHttpUtils.post()//
                 .addFile("file", file.getName(), file)//
-                .addParams("algorithmName", "faster-rcnn")
-                .addParams("net", "zf")
+                .addParams("algorithmName", ALGORITHM)
+                .addParams("net", NET)
                 .addParams("rotation", "0")
                 .url(NET_URL + "algorithm/upload")
                 .build()//

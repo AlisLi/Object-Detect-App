@@ -33,4 +33,7 @@ public interface Config {
     String PLEASE_CHOICE_VIDEO = "请先选择视频！";
     String PLEASE_CHOICE_IMAGE = "请先选择照片！";
 
+
+
+
 }

@@ -34,7 +34,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void setting(View view){
-
+        Intent intent = new Intent();
+        intent.setClass(this, SettingActivity.class);
+        startActivity(intent);
     }
 
 

@@ -4,16 +4,21 @@ ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xm
 INJECTED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:2:1-43:12
 INJECTED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:2:1-43:12
 INJECTED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:2:1-43:12
+MERGED from [com.afollestad.material-dialogs:commons:0.9.1.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\jetified-commons-0.9.1.0.aar\63b677a409397193c07408ba29ac7512\AndroidManifest.xml:2:1-14:12
+MERGED from [com.afollestad.material-dialogs:core:0.9.1.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\jetified-core-0.9.1.0.aar\72c53453d1b5a8cc3d02909865cdacbd\AndroidManifest.xml:2:1-15:12
 MERGED from [androidx.recyclerview:recyclerview:1.0.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\recyclerview-1.0.0.aar\8d2f35b38e7a9efb9f8a036ea6d6a0b6\AndroidManifest.xml:17:1-22:12
 MERGED from [org.tensorflow:tensorflow-android:1.6.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\tensorflow-android-1.6.0.aar\3b2b6cb9c480aeb524b911551b50c74c\AndroidManifest.xml:2:1-8:12
 MERGED from [com.github.bumptech.glide:glide:4.5.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\jetified-glide-4.5.0.aar\d93d5703b91142e181f9d55a01aa3938\AndroidManifest.xml:2:1-13:12
 MERGED from [com.github.chrisbanes:PhotoView:2.3.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\PhotoView-2.3.0.aar\50a07f9d73b0588b40f8845210b961fe\AndroidManifest.xml:2:1-11:12
 MERGED from [com.zhy:okhttputils:2.6.2] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\okhttputils-2.6.2.aar\2a45099d4cc11a21e0b39e0e1de3a3d9\AndroidManifest.xml:2:1-11:12
 MERGED from [com.zyao89:zloading:1.2.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\jetified-zloading-1.2.0.aar\c29c63e934fdf459dba20eed911630fa\AndroidManifest.xml:2:1-17:12
+MERGED from [me.zhanghai.android.materialprogressbar:library:1.3.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\jetified-library-1.3.0.aar\b7bf0decc9e81f6af41eded9c7b6d89a\AndroidManifest.xml:6:1-16:12
 MERGED from [com.github.f0ris.sweetalert:library:1.5.1] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\library-1.5.1.aar\f026cae94727fde8ad17fc7d96d295e4\AndroidManifest.xml:2:1-13:12
 MERGED from [com.pnikosis:materialish-progress:1.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\materialish-progress-1.0.aar\c72c9d0bb1c0c322df299022abbf6e6d\AndroidManifest.xml:2:1-17:12
 MERGED from [androidx.appcompat:appcompat:1.0.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\appcompat-1.0.0.aar\38e84e7f3ee2dcf9908de1e0f7d97390\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.2] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\constraintlayout-1.1.2.aar\a5af9bc151536ca69817fae390324d62\AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.legacy:legacy-support-v13:1.0.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\legacy-support-v13-1.0.0.aar\7fc048caa2744e4fc7dd8e0203ae0536\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\legacy-support-v4-1.0.0.aar\ce4604d4004ea8432c0e415e7df7db7b\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.fragment:fragment:1.0.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\fragment-1.0.0.aar\7fd098e419db549d5ca93584253ac340\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\vectordrawable-animated-1.0.0.aar\78cb3b79a5263c62fc90b2759894a8a3\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\legacy-support-core-ui-1.0.0.aar\8800b270f9eecaf7017d3db2f01e4149\AndroidManifest.xml:17:1-22:12
@@ -27,6 +32,7 @@ MERGED from [androidx.customview:customview:1.0.0] C:\Users\Lizhiguo\.gradle\cac
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-1.0.0.aar\0637c089ecaca157ee60468efa0c808c\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-1.0.0.aar\f23e46c0a14c579a6fb3ed135517af5b\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\loader-1.0.0.aar\d068f082a8156c395dbdc9a5773c5453\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media:media:1.0.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\media-1.0.0.aar\66f669ca5893efde3c543937a7848e15\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.core:core:1.0.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\core-1.0.0.aar\2c5bc1a40ee4dd2479b32407a5a480b4\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\versionedparcelable-1.0.0.aar\f32425592944a0e708bf49917a13f066\AndroidManifest.xml:17:1-25:12
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\cursoradapter-1.0.0.aar\ac8f3daf4dfe9c038dce8781788491b5\AndroidManifest.xml:17:1-22:12
@@ -83,6 +89,10 @@ uses-sdk
 ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:16:5-17:40
 INJECTED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:16:5-17:40
 INJECTED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:16:5-17:40
+MERGED from [com.afollestad.material-dialogs:commons:0.9.1.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\jetified-commons-0.9.1.0.aar\63b677a409397193c07408ba29ac7512\AndroidManifest.xml:8:5-10:41
+MERGED from [com.afollestad.material-dialogs:commons:0.9.1.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\jetified-commons-0.9.1.0.aar\63b677a409397193c07408ba29ac7512\AndroidManifest.xml:8:5-10:41
+MERGED from [com.afollestad.material-dialogs:core:0.9.1.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\jetified-core-0.9.1.0.aar\72c53453d1b5a8cc3d02909865cdacbd\AndroidManifest.xml:8:5-11:75
+MERGED from [com.afollestad.material-dialogs:core:0.9.1.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\jetified-core-0.9.1.0.aar\72c53453d1b5a8cc3d02909865cdacbd\AndroidManifest.xml:8:5-11:75
 MERGED from [androidx.recyclerview:recyclerview:1.0.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\recyclerview-1.0.0.aar\8d2f35b38e7a9efb9f8a036ea6d6a0b6\AndroidManifest.xml:20:5-44
 MERGED from [androidx.recyclerview:recyclerview:1.0.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\recyclerview-1.0.0.aar\8d2f35b38e7a9efb9f8a036ea6d6a0b6\AndroidManifest.xml:20:5-44
 MERGED from [com.github.bumptech.glide:glide:4.5.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\jetified-glide-4.5.0.aar\d93d5703b91142e181f9d55a01aa3938\AndroidManifest.xml:7:5-9:41
@@ -93,6 +103,8 @@ MERGED from [com.zhy:okhttputils:2.6.2] C:\Users\Lizhiguo\.gradle\caches\transfo
 MERGED from [com.zhy:okhttputils:2.6.2] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\okhttputils-2.6.2.aar\2a45099d4cc11a21e0b39e0e1de3a3d9\AndroidManifest.xml:7:5-9:41
 MERGED from [com.zyao89:zloading:1.2.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\jetified-zloading-1.2.0.aar\c29c63e934fdf459dba20eed911630fa\AndroidManifest.xml:7:5-9:41
 MERGED from [com.zyao89:zloading:1.2.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\jetified-zloading-1.2.0.aar\c29c63e934fdf459dba20eed911630fa\AndroidManifest.xml:7:5-9:41
+MERGED from [me.zhanghai.android.materialprogressbar:library:1.3.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\jetified-library-1.3.0.aar\b7bf0decc9e81f6af41eded9c7b6d89a\AndroidManifest.xml:12:5-14:41
+MERGED from [me.zhanghai.android.materialprogressbar:library:1.3.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\jetified-library-1.3.0.aar\b7bf0decc9e81f6af41eded9c7b6d89a\AndroidManifest.xml:12:5-14:41
 MERGED from [com.github.f0ris.sweetalert:library:1.5.1] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\library-1.5.1.aar\f026cae94727fde8ad17fc7d96d295e4\AndroidManifest.xml:7:5-9:41
 MERGED from [com.github.f0ris.sweetalert:library:1.5.1] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\library-1.5.1.aar\f026cae94727fde8ad17fc7d96d295e4\AndroidManifest.xml:7:5-9:41
 MERGED from [com.pnikosis:materialish-progress:1.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\materialish-progress-1.0.aar\c72c9d0bb1c0c322df299022abbf6e6d\AndroidManifest.xml:7:5-9:41
@@ -101,6 +113,10 @@ MERGED from [androidx.appcompat:appcompat:1.0.0] C:\Users\Lizhiguo\.gradle\cache
 MERGED from [androidx.appcompat:appcompat:1.0.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\appcompat-1.0.0.aar\38e84e7f3ee2dcf9908de1e0f7d97390\AndroidManifest.xml:20:5-44
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.2] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\constraintlayout-1.1.2.aar\a5af9bc151536ca69817fae390324d62\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.2] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\constraintlayout-1.1.2.aar\a5af9bc151536ca69817fae390324d62\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.legacy:legacy-support-v13:1.0.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\legacy-support-v13-1.0.0.aar\7fc048caa2744e4fc7dd8e0203ae0536\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-v13:1.0.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\legacy-support-v13-1.0.0.aar\7fc048caa2744e4fc7dd8e0203ae0536\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\legacy-support-v4-1.0.0.aar\ce4604d4004ea8432c0e415e7df7db7b\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\legacy-support-v4-1.0.0.aar\ce4604d4004ea8432c0e415e7df7db7b\AndroidManifest.xml:20:5-44
 MERGED from [androidx.fragment:fragment:1.0.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\fragment-1.0.0.aar\7fd098e419db549d5ca93584253ac340\AndroidManifest.xml:20:5-44
 MERGED from [androidx.fragment:fragment:1.0.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\fragment-1.0.0.aar\7fd098e419db549d5ca93584253ac340\AndroidManifest.xml:20:5-44
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\vectordrawable-animated-1.0.0.aar\78cb3b79a5263c62fc90b2759894a8a3\AndroidManifest.xml:20:5-44
@@ -127,6 +143,8 @@ MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\Li
 MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-1.0.0.aar\f23e46c0a14c579a6fb3ed135517af5b\AndroidManifest.xml:20:5-44
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\loader-1.0.0.aar\d068f082a8156c395dbdc9a5773c5453\AndroidManifest.xml:20:5-44
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\loader-1.0.0.aar\d068f082a8156c395dbdc9a5773c5453\AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.0.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\media-1.0.0.aar\66f669ca5893efde3c543937a7848e15\AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.0.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\media-1.0.0.aar\66f669ca5893efde3c543937a7848e15\AndroidManifest.xml:20:5-44
 MERGED from [androidx.core:core:1.0.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\core-1.0.0.aar\2c5bc1a40ee4dd2479b32407a5a480b4\AndroidManifest.xml:20:5-44
 MERGED from [androidx.core:core:1.0.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\core-1.0.0.aar\2c5bc1a40ee4dd2479b32407a5a480b4\AndroidManifest.xml:20:5-44
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\versionedparcelable-1.0.0.aar\f32425592944a0e708bf49917a13f066\AndroidManifest.xml:20:5-44
@@ -155,6 +173,8 @@ MERGED from [com.github.bumptech.glide:gifdecoder:4.5.0] C:\Users\Lizhiguo\.grad
 MERGED from [com.github.bumptech.glide:gifdecoder:4.5.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\jetified-gifdecoder-4.5.0.aar\22fd1c70e9aa7ea0324df168a21b49b8\AndroidManifest.xml:5:5-7:41
 INJECTED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:16:5-17:40
 INJECTED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:16:5-17:40
+	tools:overrideLibrary
+		ADDED from [com.afollestad.material-dialogs:core:0.9.1.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\jetified-core-0.9.1.0.aar\72c53453d1b5a8cc3d02909865cdacbd\AndroidManifest.xml:11:9-72
 	android:targetSdkVersion
 		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:17:9-38
 		INJECTED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml
@@ -165,6 +185,10 @@ INJECTED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest
 		INJECTED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml
 application
 ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:19:5-41:19
+MERGED from [com.afollestad.material-dialogs:commons:0.9.1.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\jetified-commons-0.9.1.0.aar\63b677a409397193c07408ba29ac7512\AndroidManifest.xml:12:5-20
+MERGED from [com.afollestad.material-dialogs:commons:0.9.1.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\jetified-commons-0.9.1.0.aar\63b677a409397193c07408ba29ac7512\AndroidManifest.xml:12:5-20
+MERGED from [com.afollestad.material-dialogs:core:0.9.1.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\jetified-core-0.9.1.0.aar\72c53453d1b5a8cc3d02909865cdacbd\AndroidManifest.xml:13:5-20
+MERGED from [com.afollestad.material-dialogs:core:0.9.1.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\jetified-core-0.9.1.0.aar\72c53453d1b5a8cc3d02909865cdacbd\AndroidManifest.xml:13:5-20
 MERGED from [org.tensorflow:tensorflow-android:1.6.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\tensorflow-android-1.6.0.aar\3b2b6cb9c480aeb524b911551b50c74c\AndroidManifest.xml:5:5-6:19
 MERGED from [org.tensorflow:tensorflow-android:1.6.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\tensorflow-android-1.6.0.aar\3b2b6cb9c480aeb524b911551b50c74c\AndroidManifest.xml:5:5-6:19
 MERGED from [com.github.bumptech.glide:glide:4.5.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\jetified-glide-4.5.0.aar\d93d5703b91142e181f9d55a01aa3938\AndroidManifest.xml:11:5-20
@@ -190,7 +214,7 @@ MERGED from [com.github.bumptech.glide:gifdecoder:4.5.0] C:\Users\Lizhiguo\.grad
 	android:label
 		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:24:9-41
 	android:roundIcon
-		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:25:9-54
+		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:25:9-48
 	android:icon
 		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:23:9-43
 		REJECTED from [com.pnikosis:materialish-progress:1.0] C:\Users\Lizhiguo\.gradle\caches\transforms-1\files-1.1\materialish-progress-1.0.aar\c72c9d0bb1c0c322df299022abbf6e6d\AndroidManifest.xml:13:9-45
@@ -236,6 +260,10 @@ activity#my.object_detect_app.activities.VideoSelectorActivity
 ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:39:9-79
 	android:name
 		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:39:19-67
+activity#my.object_detect_app.activities.SettingActivity
+ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:40:9-73
+	android:name
+		ADDED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:40:19-61
 uses-permission#android.permission.READ_PHONE_STATE
 IMPLIED from E:\graduationDesign\Object-Detect-App\app\src\main\AndroidManifest.xml:2:1-43:12 reason: tensorflow.contrib.android has a targetSdkVersion < 4
 uses-permission#android.permission.READ_EXTERNAL_STORAGE

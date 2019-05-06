@@ -38,6 +38,8 @@ import static my.object_detect_app.Config.DIALOG_DOWNLOAD_ERROR;
 import static my.object_detect_app.Config.NET_URL;
 import static my.object_detect_app.Config.PLEASE_CHOICE_VIDEO;
 import static my.object_detect_app.Config.VIDEO_HAS_DETECTED;
+import static my.object_detect_app.Constant.ALGORITHM;
+import static my.object_detect_app.Constant.NET;
 
 /**
  * User: Lizhiguo
@@ -113,8 +115,8 @@ public class VideoDetectActivity extends AppCompatActivity {
 
         OkHttpUtils.post()//
                 .addFile("file", file.getName(), file)//
-                .addParams("algorithmName", "faster-rcnn")
-                .addParams("net", "zf")
+                .addParams("algorithmName", ALGORITHM)
+                .addParams("net", NET)
                 .addParams("rotation", rotation + "")
                 .url(NET_URL + "algorithm/upload")
                 .build()//

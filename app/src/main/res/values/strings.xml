@@ -7,6 +7,20 @@
     <!-- 主界面文本 -->
     <string name="txt_main_content">一款支持实时、图片、视频的目标检测APP！</string>
 
+    <!-- setting activity-->
+    <string name="txt_btn_choice">选择</string>
+    <string name="txt_algorithm_name">算法名称：</string>
+    <string name="txt_net_name">主干网络：</string>
+
+    <!-- video detect activity -->
+    <string name="txt_btn_choice_local_video">选择本地视频</string>
+    <string name="txt_get_detect_result">检测</string>
+
+    <!-- image detect activity -->
+    <string name="txt_btn_choice_local_image">选择本地照片</string>
+    <string name="txt_get_net_detect_result">网络检测</string>
+    <string name="txt_get_local_detect_result">本地检测</string>
+
     <!-- button text -->
     <string name="txt_btn_real_time_video">实时检测</string>
     <string name="txt_btn_local_photo">本地照片检测</string>

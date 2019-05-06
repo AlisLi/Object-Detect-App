@@ -20,18 +20,65 @@
 
     </FrameLayout>
 
-    <Button
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btn_local_choice_photo"
-        android:text="选择本地视频"
-        android:onClick="choiceLocalVideo"/>
+        android:layout_marginTop="20dp">
 
-    <Button
-        android:layout_width="wrap_content"
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:foreground="@drawable/btn_foreground_selector"
+            android:onClick="choiceLocalVideo">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_green_shape"
+                android:gravity="center"
+                android:minWidth="50dp"
+                android:paddingBottom="5dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingTop="5dp"
+                android:text="@string/txt_btn_choice_local_video"
+                android:textColor="@android:color/white"
+                android:textSize="14sp" />
+
+        </FrameLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btn_local_detect"
-        android:text="生成结果"
-        android:onClick="getDetectResult"/>
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:foreground="@drawable/btn_foreground_selector"
+            android:onClick="getDetectResult">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_green_shape"
+                android:gravity="center"
+                android:minWidth="50dp"
+                android:paddingBottom="5dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingTop="5dp"
+                android:text="@string/txt_get_detect_result"
+                android:textColor="@android:color/white"
+                android:textSize="14sp" />
+
+        </FrameLayout>
+
+    </RelativeLayout>
 
 </LinearLayout>
