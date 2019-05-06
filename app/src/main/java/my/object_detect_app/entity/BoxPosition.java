@@ -6,12 +6,12 @@ package my.object_detect_app.entity;
  */
 
 public class BoxPosition {
-    private float left;
-    private float top;
-    private float right;
-    private float bottom;
-    private float width;
-    private float height;
+    private float left;     // 方框左上角  左边坐标
+    private float top;      // 方框左上角  上边坐标
+    private float right;    // 方框右下角 右边坐标
+    private float bottom;   // 方框右下角 下边坐标
+    private float width;    // 方框的宽度
+    private float height;   // 方框的高度
 
     public BoxPosition(float left, float top, float width, float height) {
         this.left = left;

@@ -243,6 +243,7 @@ public class ImageDetectActivity extends AppCompatActivity {
         hasDetected = true;
 
         //本地检测照片
+        overlayView.setResultsViewHeight(-120);
 
         // 处理图像
         cropBitmap();

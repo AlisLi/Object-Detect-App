@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 
@@ -22,11 +23,14 @@ import my.object_detect_app.utils.ClassAttrProvider;
  * User: Lizhiguo
  */
 public class OverlayView extends View {
+    public static final String TAG = "OverlayView";
     private final Paint paint;
     private final List<DrawCallback> callbacks = new LinkedList();
     private List<Recognition> results;
     private List<Integer> colors;
     private float resultsViewHeight;
+
+    private int rotation = 0;
 
     public OverlayView(final Context context, final AttributeSet attrs) {
         super(context, attrs);
@@ -36,7 +40,8 @@ public class OverlayView extends View {
         paint.setTextSize(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
                 15, getResources().getDisplayMetrics()));
         resultsViewHeight = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
-                150, getResources().getDisplayMetrics());
+                10, getResources().getDisplayMetrics());
+        Log.i(TAG, "resultsViewHeight3 = " + resultsViewHeight);
         colors = ClassAttrProvider.newInstance(context.getAssets()).getColors();
     }
 
@@ -57,7 +62,9 @@ public class OverlayView extends View {
                 String title = results.get(i).getTitle() + ":"
                         + String.format("%.2f", results.get(i).getConfidence());
                 paint.setColor(colors.get(results.get(i).getId()));
+                paint.setStyle(Paint.Style.STROKE);
                 canvas.drawRect(box, paint);
+                paint.setStyle(Paint.Style.FILL);
                 canvas.drawText(title, box.left, box.top, paint);
             }
         }
@@ -81,6 +88,7 @@ public class OverlayView extends View {
      * @return
      */
     private RectF reCalcSize(BoxPosition rect) {
+        Log.i(TAG, "resultsViewHeight2 = " + resultsViewHeight);
         int padding = 5;
         float overlayViewHeight = this.getHeight() - resultsViewHeight;
         float sizeMultiplier = Math.min((float) this.getWidth() / (float) Config.INPUT_SIZE,
@@ -91,11 +99,27 @@ public class OverlayView extends View {
 
         float left = Math.max(padding,sizeMultiplier * rect.getLeft() + offsetX);
         float top = Math.max(offsetY + padding, sizeMultiplier * rect.getTop() + offsetY);
+        Log.i(TAG, "offsetY = " + offsetY);
+        Log.i(TAG, "sizeMultiplier = " + sizeMultiplier);
 
         float right = Math.min(rect.getRight() * sizeMultiplier, this.getWidth() - padding);
         float bottom = Math.min(rect.getBottom() * sizeMultiplier + offsetY, this.getHeight() - padding);
-
+        if (rotation == 0 || rotation == 360){
+            return new RectF(left, top, right, bottom);
+        }else if(rotation == 90 || rotation == 270){
+            return new RectF(left, top, right, bottom);
+        }
         return new RectF(left, top, right, bottom);
+    }
+
+    public void setResultsViewHeight(int resultsViewHeight){
+        this.resultsViewHeight = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
+                resultsViewHeight, getResources().getDisplayMetrics());
+        Log.i(TAG, "resultsViewHeight1 = " + this.resultsViewHeight);
+    }
+
+    public void setRotation(){
+        this.rotation = rotation;
     }
 
     /**

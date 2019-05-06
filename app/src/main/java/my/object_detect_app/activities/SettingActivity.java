@@ -48,6 +48,8 @@ public class SettingActivity extends AppCompatActivity {
     private List<String> algorithms = new ArrayList<>();
     private List<String> nets = new ArrayList<>();
 
+    private boolean isChoiceAlgorithm = false;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,7 +67,7 @@ public class SettingActivity extends AppCompatActivity {
         txtNet.setText(NET);
     }
 
-    private void singleChoise(String title, List<String> content) {
+    private void singleChoise(String title, List<String> content, View view) {
         mBuilder = new MaterialDialog.Builder(SettingActivity.this);
         mBuilder.title(title);
         mBuilder.titleGravity(GravityEnum.CENTER);
@@ -95,6 +97,7 @@ public class SettingActivity extends AppCompatActivity {
                             if(title.equals("算法")){
                                 ALGORITHM  = (String) text;
                                 txtAlgorithm.setText(ALGORITHM);
+                                choiceNet(view);
                             }else if(title.equals("主干网络")){
                                 NET  = (String) text;
                                 txtNet.setText(NET);
@@ -133,8 +136,21 @@ public class SettingActivity extends AppCompatActivity {
                         }
                         // 去除net重复数据
                         nets = removeDuplicate(nets);
-                        singleChoise("主干网络", nets);
 
+                        if (!getIsChoiceAlgorithm()){
+                            singleChoise("主干网络", nets, view);
+                        }else{
+                            NET = nets.get(0);
+                            // 更新View显示
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    txtNet.setText(NET);
+                                }
+                            });
+                        }
+
+                        setIsChoiceAlgorithm(false);
                     }
                 });
     }
@@ -157,13 +173,14 @@ public class SettingActivity extends AppCompatActivity {
 
                     @Override
                     public void onResponse(List<Algorithm> response, int id) {
+                        setIsChoiceAlgorithm(true);
                         Log.d(TAG, "algorithm size  = " + response.size());
                         for (Algorithm algorithm : response){
                             algorithms.add(algorithm.getAlgorithmName());
                         }
                         //去除algorithms重复数据
                         algorithms = removeDuplicate(algorithms);
-                        singleChoise("算法", algorithms);
+                        singleChoise("算法", algorithms, view);
                     }
                 });
 
@@ -181,6 +198,14 @@ public class SettingActivity extends AppCompatActivity {
             Log.d(TAG, "algorithmList.get(0) = " + algorithmList.get(0).toString());
             return algorithmList;
         }
+    }
+
+    public void setIsChoiceAlgorithm(boolean n){
+        this.isChoiceAlgorithm = n;
+    }
+
+    public boolean getIsChoiceAlgorithm(){
+        return this.isChoiceAlgorithm;
     }
 
 }
