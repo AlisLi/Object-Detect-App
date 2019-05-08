@@ -11,7 +11,11 @@ import android.util.Log;
 import android.util.Size;
 import android.util.TypedValue;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.Vector;
 
 import my.object_detect_app.R;
@@ -137,11 +141,23 @@ public class ClassifierActivity extends TextToSpeechActivity implements ImageRea
                 lines.add(line);
             }
         }
-
         lines.add("Frame: " + previewWidth + "x" + previewHeight);
-        lines.add("View: " + canvas.getWidth() + "x" + canvas.getHeight());
         lines.add("Rotation: " + sensorOrientation);
         lines.add("Inference time: " + lastProcessingTimeMs + "ms");
+
+        // 统计类别个数
+        List<Recognition> results = this.overlayView.getResults();
+        if (results != null){
+            List<String> resultsString = new ArrayList<>();
+            for(Recognition result : results){
+                resultsString.add(result.getTitle());
+            }
+            Set uniqueSet = new HashSet(resultsString);
+
+            for (Object temp : uniqueSet){
+                lines.add(temp + ": " + Collections.frequency(resultsString, temp) + "个");
+            }
+        }
 
         borderedText.drawLines(canvas, 10, 10, lines);
     }

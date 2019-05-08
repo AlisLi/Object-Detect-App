@@ -75,6 +75,10 @@ public class OverlayView extends View {
         postInvalidate();
     }
 
+    public List<Recognition> getResults(){
+        return this.results;
+    }
+
     /**
      * Interface defining the callback for client classes.
      */
